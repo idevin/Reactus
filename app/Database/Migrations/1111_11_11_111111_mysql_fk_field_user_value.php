@@ -1,0 +1,54 @@
+<?php
+
+use App\Traits\Utils;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class MysqlFkFieldUserValue extends Migration
+{
+    use Utils;
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection('mysql')->table('field_user_value', function (Blueprint $table) {
+            if (!Utils::hasForeignKey('field_user_value', 'field_user_value_field_id_foreign', 'mysql')) {
+                $table->foreign('field_id')->references('id')->on('field')
+                    ->onUpdate('NO ACTION')->onDelete('CASCADE');
+            }
+            if (!Utils::hasForeignKey('field_user_value', 'field_user_value_field_user_group_id_foreign', 'mysql')) {
+                $table->foreign('field_user_group_id')->references('id')->on('field_user_group')
+                    ->onUpdate('NO ACTION')->onDelete('CASCADE');
+            }
+            if (!Utils::hasForeignKey('field_user_value', 'field_user_value_site_id_foreign', 'mysql')) {
+                $table->foreign('site_id')->references('id')->on('site')
+                    ->onUpdate('NO ACTION')->onDelete('CASCADE');
+            }
+            if (!Utils::hasForeignKey('field_user_value', 'field_user_value_user_id_foreign', 'mysql')) {
+                $table->foreign('user_id')->references('id')->on(env('DBU_DATABASE') . '.' . 'user')
+                    ->onUpdate('NO ACTION')->onDelete('CASCADE');
+            }
+        });
+    }
+
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection('mysql')->table('field_user_value', function (Blueprint $table) {
+            $table->dropForeign('field_user_value_field_id_foreign');
+            $table->dropForeign('field_user_value_field_user_group_id_foreign');
+            $table->dropForeign('field_user_value_site_id_foreign');
+            $table->dropForeign('field_user_value_user_id_foreign');
+        });
+    }
+
+}

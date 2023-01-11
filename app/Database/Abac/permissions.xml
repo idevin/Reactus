@@ -1,0 +1,487 @@
+<?xml version="1.0" ?>
+<permission>
+    <DATA_RECORD>
+        <name>article_edit</name>
+        <description>Статья : редактирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_delete</name>
+        <description>Удаление статьи</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_create</name>
+        <description>Раздел: создание</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_edit</name>
+        <description>Раздел : редактирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_move</name>
+        <description>Раздел : перемещение</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_delete</name>
+        <description>Раздел : удаление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>comment_create</name>
+        <description>Комментарий : создание</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>comment_delete</name>
+        <description>Комментарий : удаление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_create</name>
+        <description>Сайт : создание</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_create</name>
+        <description>Статья : создание</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_edit</name>
+        <description>Сайт : редактирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_hide</name>
+        <description>Раздел : скрыть</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_publish_time</name>
+        <description>Статья : дата\время публикации</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>trash_access</name>
+        <description>Корзина : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_book_manage</name>
+        <description>Статья : подшивка : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_author_edit</name>
+        <description>Статья : автор : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_author_panel_hide</name>
+        <description>Статья : авторская панель : скрыть</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_file_access</name>
+        <description>Статья : файлы : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_files_manage</name>
+        <description>Статья : файл : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_history_manage</name>
+        <description>Статья : история: управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_rating_show</name>
+        <description>Статья : рейтинг: отображение</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_move</name>
+        <description>Статья : перенос</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_status_block</name>
+        <description>Статья : статус : блокировка</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_status_premoderate</name>
+        <description>Статья: статус : премодерация</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_status_publish</name>
+        <description>Статья : статус : черновик</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_title_edit</name>
+        <description>Статья : заголовок : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_view</name>
+        <description>Статья : просмотр</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_wysiwyg_func1</name>
+        <description>Контент : Редактор текста : функции 1</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>comment_edit</name>
+        <description>Комментарии : изменение</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>comment_premoderation</name>
+        <description>Комментарии : премодерация</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>comment_view</name>
+        <description>Комментарии : просмотр</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>content_tag_manage</name>
+        <description>Контент : теги : управлять</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>moderpool_article_access</name>
+        <description>Модерпул: статья : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>moderpool_comment_access</name>
+        <description>Модерпул : комментарий : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>moderpool_complain_access</name>
+        <description>Модерпул : жалоба : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>moderpool_complain_answer</name>
+        <description>Модерпул : жалоба : ответ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>moderpool_rules_manage</name>
+        <description>Модерпул : правила : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_access</name>
+        <description>Профиль : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_active</name>
+        <description>Профиль : активный : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_avatar_edit</name>
+        <description>Профиль : аватар : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_birthday_edit</name>
+        <description>Профиль : дата рождения : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_email_edit</name>
+        <description>Профиль : email : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_feedback_manage</name>
+        <description>Сайт : форма обратной связи : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_name_edit</name>
+        <description>Профиль : имя : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_password_edit</name>
+        <description>Профиль : пароль : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_tel_edit</name>
+        <description>Профиль : телефон : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_view</name>
+        <description>Профиль : Просмотр : изменить</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_list_article_author_hide</name>
+        <description>Раздел : список статей : автор : скрыть</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_list_article_bind</name>
+        <description>Раздел : список статей : прикрепить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_list_article_sort</name>
+        <description>Раздел : список статей : сортировка</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_list_section_sort</name>
+        <description>Раздел : список разделов : сортировка</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_rating_hide</name>
+        <description>Раздел : рейтинг : скрыть</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_status_premoderate</name>
+        <description>Раздел : статус : премодерация</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_tag_hide</name>
+        <description>Раздел : скрыть теги</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_view</name>
+        <description>Раздел : просмотр</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_access</name>
+        <description>Сайт : доступ</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_contact_edit</name>
+        <description>Сайт : контакты : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_content_edit</name>
+        <description>Сайт : контент : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_domain_edit</name>
+        <description>Сайт : домен : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_header_background_edit</name>
+        <description>Сайт : шапка : фон : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_layout_edit</name>
+        <description>Сайт : шаблон : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_lines_manage</name>
+        <description>Сайт : строка : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_look_background_image_edit</name>
+        <description>Сайт : внешний вид : фоновое изображение : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_look_edit</name>
+        <description>Сайт : внешний вид : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_look_logo_image_edit</name>
+        <description>Сайт : внешний вид: логотип : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_menu_horizontal_manage</name>
+        <description>Сайт : горизонтальное меню: управлять</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_multilang_manage</name>
+        <description>Сайт : многоязычность : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_name_edit</name>
+        <description>Сайт : название : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_parent_domain_manage</name>
+        <description>Сайт : родительский домен : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_parent_site_manage</name>
+        <description>Сайт : Родительский сайт : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_seo_manage</name>
+        <description>Сайт : внешний вид: управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_settings_access</name>
+        <description>Сайт : настройки : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_settings_default_access</name>
+        <description>Сайт : настройки по умолчанию : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_slider_dynamic_edit</name>
+        <description>Сайт : слайдер : динамический слайдер : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_slider_static_edit</name>
+        <description>Сайт : слайдер : статический слайд : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_slogan_edit</name>
+        <description>Сайт : слоган : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_social_manage</name>
+        <description>Сайт : социальные сети : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_syscontentblocks_edit</name>
+        <description>Сайт : блоки системы : изменить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_syscontentblocks_show</name>
+        <description>Сайт : блоки системы : отображение</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_topic_manage</name>
+        <description>Сайт : тематика : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>user_rating_vote</name>
+        <description>Пользователь : рейтинг : голосовать</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_wysiwyg_table</name>
+        <description>Статья : редактор : таблица</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_wysiwyg_card</name>
+        <description>Статья : редактор : карточка</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>article_wysiwyg_slider</name>
+        <description>Статья : редактор : слайдер</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>mass_deleting</name>
+        <description>Модерирование:массовое удаление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>competitive_advantages_edit</name>
+        <description>Преимущества:Модуль:Редактирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>mainpage_add_catalog</name>
+        <description>Главная : добавить : Каталог</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>section_add_catalog</name>
+        <description>Раздел : добавить : Каталог</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>card_create</name>
+        <description>Карточки: создание</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>card_edit</name>
+        <description>Карточки: редактирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>getting_ranking</name>
+        <description>Баннерная сеть: попадание в ранжирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>announcement_create</name>
+        <description>Анонс:создание</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>disk_space_add</name>
+        <description>Диск : место : добавить</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>treeview_card_manage</name>
+        <description>Генеалогическое дерево : Модуль : Редактирование</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>filemanager_access</name>
+        <description>Файловый менеджер : доступ</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>cropper_edit</name>
+        <description>Кропер : редактирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>sidemenu_tree_show</name>
+        <description>Боковое меню : дерево : показывать</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>cards_edit_show</name>
+        <description>Отображение пункта меню редактирования карточек</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>billing_show</name>
+        <description>Показывать билинг</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>profile_poles_edit_show</name>
+        <description>Отображение полей редактирования провиля</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>moderation_frontend</name>
+        <description>Массовое модерирование</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_thematics_show</name>
+        <description>Сайт : тематика : показывать</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_parent_domain_show</name>
+        <description>Сайт : родительский домен : показывать</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>catalog_view</name>
+        <description>Каталог: Просмотр списка</description>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>catalog_delete</name>
+        <description>Каталог: удаление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>notification_access</name>
+        <description>Сайт : уведомления : управление</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>site_feedback_get</name>
+        <description>Сайт : обратная связь : получение</description>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>catalog_create</name>
+        <description>Каталог : создание</description>
+        <annotation>Создание каталога в закладке каталоги</annotation>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>menu_options_edit</name>
+        <description>Настройки : редактирование</description>
+        <annotation>Редактирование настроек меню</annotation>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>menu_storage_access</name>
+        <description>Настройки : хранилище</description>
+        <annotation>Доступ к хранилищу</annotation>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>menu_access</name>
+        <description>Настройки : главное меню</description>
+        <annotation>Доступ к главному меню</annotation>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>menu_profile_access</name>
+        <description>Настройки : доступ к меню профиля</description>
+        <annotation>Доступ к конструктору</annotation>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+    <DATA_RECORD>
+        <name>menu_admin_access</name>
+        <description>Настройки : доступ к админ меню</description>
+        <annotation>Доступ к конструктору</annotation>
+        <own>1</own>
+        <other>1</other>
+    </DATA_RECORD>
+</permission>

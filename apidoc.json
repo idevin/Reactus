@@ -1,0 +1,13 @@
+{
+	"name": "Reactom",
+	"description": "",
+	"apidoc": {
+		"title": "API",
+		"url" : "/apidoc",
+
+		"version": "0.1.0"
+	},
+	"template" : {
+		"withCompare" : false
+	}
+}

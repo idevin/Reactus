@@ -1,0 +1,982 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>netgamer</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic-ext">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic-ext">
+  <link rel="stylesheet" href="../assets/style/legacy.css"/>
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv/dist/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="is-moderator">
+
+<div id="navbar" class="navbar navbar-icons">
+  <div class="container">
+    <!-- unauthorized user -->
+    <div class="navbar-auth-dropdown dropdown  js-dropdown-auth">
+      <button id="auth-dropdown" class="btn btn-success btn-auth" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="icon icon-navbar-profile"></span>
+        АВТОРИЗАЦИЯ
+      </button>
+
+      <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="auth-dropdown">
+        <form class="js-auth-form" action="#" method="post" novalidate>
+          <div class="form-group no-m">
+            <input type="text" class="form-control input-lg" name="login" placeholder="E-mail/Телефон/Логин"
+                   data-validation="required"
+                   data-validation-error-msg="Заполните поле"
+                    />
+          </div>
+
+          <div class="form-group no-m">
+            <input type="password" class="form-control input-lg" name="password" placeholder="Пароль"
+                   data-validation="required"
+                   data-validation-error-msg="Введите пароль" />
+          </div>
+
+          <div class="navbar-auth-buttons">
+            <div class="js-auth-error"></div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-login">ВОЙТИ</button>
+
+            <button type="button" class="btn btn-success btn-lg btn-register" data-toggle="modal" data-target="#reg-step1">
+              РЕГИСТРАЦИЯ
+            </button>
+          </div>
+
+          <a href="#"><small>Забыли пароль?</small></a>
+
+          <div class="navbar-auth-social">
+            <a href="#" class="btn btn-lg btn-fb">FACEBOOK</a>
+            <a href="#" class="btn btn-lg btn-vk">ВКОНТАКТЕ</a>
+            <a href="#" class="btn btn-lg btn-tw">TWITTER</a>
+            <a href="#" class="btn btn-lg btn-gp">GOOGLE+</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- unauthorized user end -->
+
+    <!-- authorized user -->
+    <!--<div class="navbar-user navbar-user-sm dropdown">
+      <div id="personal-dropdown" class="navbar-user-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="navbar-user-av">
+          <div class="navbar-user-av-block">
+            <img src="http://placehold.it/40x40" width="40" height="40" alt=""/>
+            <span class="notification-counter">33</span>
+          </div>
+        </div>
+        <div class="navbar-user-info">
+          <p class="navbar-user-name">Вася Москаленко</p>
+
+          <p class="navbar-user-role">Писатель 20 lvl</p>
+        </div>
+      </div>
+
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="personal-dropdown">
+        <ul class="navbar-account">
+          <li><a href="#" class="navbar-account-item">ИСТОРИЯ</a></li>
+          <li><a href="#" class="navbar-account-item">ЛОГИ</a></li>
+          <li><a href="#" class="navbar-account-item">ЛИЧНЫЙ КАБИНЕТ</a></li>
+          <li><a href="#" class="navbar-account-item">ДРУЗЬЯ</a></li>
+          <li><a href="#" class="navbar-account-item">ИЗБРАННОЕ</a></li>
+          <li><a href="#" class="navbar-account-item">МОЙ ДИСК</a></li>
+          <li><a href="#" class="navbar-account-item  js-sign-out">ВЫХОД</a></li>
+        </ul>
+      </div>
+    </div>-->
+    <!-- authorized user end -->
+
+    <div class="navbar-search-wrapper">
+      <ul class="navbar-menu clearfix">
+        <li class="navbar-left-item">
+          <a href="#" class="navbar-menu-item" data-toggle="modal" data-target="#drive-modal">
+            <span class="icon icon-navbar-folder"></span>
+          </a>
+        </li>
+
+        <li class="navbar-left-item visible-md visible-lg">
+          <a href="#" class="navbar-menu-item">
+            <span class="icon icon-navbar-global"></span>
+          </a>
+        </li>
+
+        <li class="navbar-left-item">
+          <div id="navbar-search" class="navbar-search">
+            <button type="button" id="navbar-search-button" class="navbar-search-button">
+              <span class="icon icon-navbar-search"></span>
+            </button>
+            <form class="navbar-search-form" novalidate>
+              <input type="text" class="navbar-search-field" placeholder="Поиск по сайту" />
+              <button type="submit" class="navbar-search-submit input-lg">
+                <span class="icon icon-search"></span>
+              </button>
+            </form>
+          </div>
+        </li>
+
+        <li class="navbar-right-item">
+          <ul class="list-unstyled">
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-chat"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-messages"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-profile"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-bookmarks"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-settings"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-events"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--<button type="button" id="navbar-toggle" class="navbar-toggle"><span class="icon arrow"></span></button>-->
+</div>
+
+<header class="main-header-podsite" style="
+background: #000000 url(assets/img/podsite-bg.jpg) no-repeat center;
+background-size: auto 100%;
+">
+    <!-- /build -->
+    <div>
+        <div class="hero">
+            <div class="container">
+                <div class="col-xs-12">
+                    <div class="row logo-container">
+                        <div class="age pull-right">
+                            Возрастное ограничение 16+
+                        </div>
+                        <a href="#" class="logo">
+                            <div class="logo-letter"><span>N</span></div>
+                            <div href="#" class="logo-text">
+                                <span class="logo-title">netgamer</span>
+                                <span class="logo-slogan">сообщество геймеров</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <nav style="display: none;">
+                          <a href="#" class="main-nav-toggle" id="main-nav-toggle"><span class="icon icon-sandwich"></span> Меню</a>
+
+                          <ul id="main-nav" class="main-nav">
+                            <li class="overlap-menu-dropdown">
+                              <button id="menu-dropdown" class="btn-menu-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="icon icon-sandwich"></span>
+                              </button>
+
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu-dropdown">
+                                <ul class="main-nav-overlap list-unstyled">
+                                  <li>
+                                    <a href="#" class="main-nav-item">РАЗДЕЛЫ</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">СТАТЬИ</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">СООБЩЕСТВА</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">САЙТЫ</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+
+                            <li>
+                              <a href="#" class="main-nav-item">РАЗДЕЛЫ</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item">СТАТЬИ</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item">СООБЩЕСТВА</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item main-nav-item-active">САЙТЫ</a>
+                            </li>
+                          </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header end -->
+
+
+<div id="top-carousel-thumbs" class="slider-thumbs top-slider-thumbs jcarousel">
+    <div class="jcarousel-list">
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Как завести в Google Cloud, подцепить к нему Bucket Google.</p>
+                    <a href="#" class="small">Baseum.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Valve покажет очки виртуальной реальности</p>
+                    <a href="#" class="small">Ruttacker.org</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Bethesda на E3: Dishonored, Wolfenstein, Evil Within. А где Fallout?</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Crytek и динозавры: пора покупать очки виртуальной реальности</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>5</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>6</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>7</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="articles moderators-pull">
+    <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="#">Главная</a></li>
+          <li class="active">Сайты</li>
+        </ol>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1><strong>ПУЛ МОДЕРАТОРОВ</strong></h1>
+                <div class="view-section">
+                    <div class="view-section-heading clearfix">
+                        <div class="view-section-actions row">
+                            <div class="view-action col-xs-6 col-md-3 first">
+                                <select class="select-sort no-bg thin js-sort-field"
+                                        data-type="sections">
+                                    <option value="rating">Сайт</option>
+                                    <option value="published-at">Сайт 1</option>
+                                    <option value="articles">Сайт 2</option>
+                                    <option value="members">Сайт 3</option>
+                                    <option value="title">Сайт 4</option>
+                                </select>
+                            </div>
+                            <div class="view-action col-xs-6 col-md-3">
+                                <select class="select-sort no-bg thin js-sort-field"
+                                        data-type="sections">
+                                    <option value="rating">Раздел</option>
+                                    <option value="published-at">Раздел 1</option>
+                                    <option value="articles">Раздел 2</option>
+                                    <option value="members">Раздел 3</option>
+                                    <option value="title">Раздел 4</option>
+                                </select>
+                            </div>
+                            <div class="view-action col-xs-6 col-md-3">
+                                <select class="select-sort no-bg thin js-sort-field"
+                                        data-type="sections">
+                                    <option value="rating">Все типы</option>
+                                    <option value="published-at">Все типы 1</option>
+                                    <option value="articles">Все типы 2</option>
+                                    <option value="members">Все типы 3</option>
+                                    <option value="title">Все типы 4</option>
+                                </select>
+                            </div>
+                            <div class="view-action col-xs-6 col-md-3 last">
+                                <div class="view-search">
+                                    <input type="text" class="view-search-input js-search-field"
+                                           placeholder="Фильтр по авторам"
+                                           data-type="sections">
+                                    <span class="view-search-button">
+                                        <span class="icon icon-search-black"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-list">
+                    <div class="pull-item pull-fire pull-dropdown">
+                        <div class="pull-item_header">
+                            <span class="icon icon-fire"></span>
+                            <div class="pull-item_header-content row">
+                                <div class="pull-item_header-content_title col-md-5 col-sm-12">Спойлер сериала "Как я встретил вашу маму" <span class="pull-item_header-content_mark gray">122 жалоб</span></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Сайт: <a href="">Motor.life</a></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Раздел: ..\..\<a href="#">Жигули</a></div>
+                                <div class="pull-item_header-content_info col-md-3 col-sm-4"></div>
+                                <div class="pull-item_header-content_description col-sm-12">
+                                    <div>Автор: <a href="#">Гарик Бульдог Харламов</a> <span class="pull-item_header-content_mark gray">(560 жалоб)</span></div>
+                                    <div>Комментариев: 1200/<span class="red">300</span></div>
+                                </div>
+                            </div>
+                            <a href="#" class="pull-item-dropdown-toggle" data-dropdown-toggle="pull-item_1"></a>
+                        </div>
+                        <div class="pull-item-dropdown pull-item_content" data-dropdown="pull-item_1">
+                            <div class="pull-item_content-element col-md-12">
+                                Комментарии: <span><a href="#22">#22</a> <a href="#33">#33</a> <a href="#45">#45</a> (<a
+                                    href="#Anarki">Anarki</a> 22)</span>
+                                <span><a href="#22">#22</a> <a href="#33">#33</a> <a href="#45">#45</a> (<a
+                                        href="#Anarki">Уася</a> 212)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-item pull-transferring pull-dropdown">
+                        <div class="pull-item_header">
+                            <span class="icon icon-double-arrow-right"></span>
+                            <div class="pull-item_header-content row">
+                                <div class="pull-item_header-content_title col-md-7 col-sm-12">Перенос раздела / статей<span class="pull-item_header-content_additionally"> из <a
+                                        href="#">netgamer.ru/diablo3/info</a> в <a href="#">netgamer.ru/diablo4/info</a></span>
+                                </div>
+                                <div class="pull-item_header-content_info col-md-5 col-sm-12">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                    <div class="pull-item_header-content_mark gray pull-item_info-right">
+                                        <span>29.06.2016</span>
+                                    </div>
+                                    <div class="pull-item_header-content_mark gray pull-item_info-right">
+                                        <span>3 раздела / 28 статей</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="pull-item-dropdown-toggle" data-dropdown-toggle="pull-item_3"></a>
+                        </div>
+                        <div class="pull-item-dropdown pull-item_content" data-dropdown="pull-item_3">
+                            <div class="pull-item_content-element row">
+                                <div class="col-md-7">
+                                    <a href="#">Как я встретил вашу маму</a>
+                                    <span class="gray">560 статей</span>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                    <div class="gray pull-item_info-right">
+                                        <span>Раздел</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-item_content-element row">
+                                <div class="col-md-7">
+                                    <a href="#">Watch_Dogs и четыре других игры, которые пострадали от хайпа</a>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                    <div class="gray pull-item_info-right">
+                                        <span>Статья</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-item pull-adding">
+                        <div class="pull-item_header">
+                            <span class="icon icon-add"></span>
+                            <div class="pull-item_header-content row">
+                                <div class="pull-item_header-content_title col-md-5 col-sm-12"><a href="#">Watch_Dogs и четыре других игры, которые пострадали от хайпа</a></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Сайт: <a href="">Motor.life</a></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Раздел: ..\..\<a href="#">Жигули</a></div>
+                                <div class="pull-item_header-content_info col-md-3 col-sm-4">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                    <div class="pull-action-moderator pull-item_info-right">
+                                        <span>На модераторстве</span>
+                                        <a href="#">Vasy32</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-item pull-adding">
+                        <div class="pull-item_header">
+                            <span class="icon icon-lock-black"></span>
+                            <div class="pull-item_header-content row">
+                                <div class="pull-item_header-content_title col-md-5 col-sm-12">Watch_Dogs и четыре других игры, которые пострадали от хайпа</div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Сайт: <a href="">Motor.life</a></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Раздел: ..\..\<a href="#">Жигули</a></div>
+                                <div class="pull-item_header-content_info col-md-3 col-sm-4">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-item pull-close">
+                        <div class="pull-item_header">
+                            <span class="icon icon-close-black"></span>
+                            <div class="pull-item_header-content row">
+                                <div class="pull-item_header-content_title col-md-5 col-sm-12">Watch_Dogs и четыре других игры, которые пострадали от хайпа</div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Сайт: <a href="">Motor.life</a></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Раздел: ..\..\<a href="#">Жигули</a></div>
+                                <div class="pull-item_header-content_info col-md-3 col-sm-4">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                    <div class="pull-action-moderator pull-item_info-right">
+                                        <span>На модераторстве</span>
+                                        <a href="#">Vasy32</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-item pull-editing">
+                        <div class="pull-item_header">
+                            <span class="icon icon-edit-black"></span>
+                            <div class="pull-item_header-content row">
+                                <div class="pull-item_header-content_title col-md-5 col-sm-12">Watch_Dogs и четыре других игры, которые пострадали от хайпа</div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Сайт: <a href="">Motor.life</a></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Раздел: ..\..\<a href="#">Жигули</a></div>
+                                <div class="pull-item_header-content_info col-md-3 col-sm-4">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                    <div class="pull-action-moderator pull-item_info-right">
+                                        <span>На модераторстве</span>
+                                        <a href="#">Vasy32</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-item pull-adding">
+                        <div class="pull-item_header">
+                            <span class="icon icon-listing-black"></span>
+                            <div class="pull-item_header-content row">
+                                <div class="pull-item_header-content_title col-md-5 col-sm-12">Watch_Dogs и четыре других игры, которые пострадали от хайпа</div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Сайт: <a href="">Motor.life</a></div>
+                                <div class="pull-item_header-content_info col-md-2 col-sm-4">Раздел: ..\..\<a href="#">Жигули</a></div>
+                                <div class="pull-item_header-content_info col-md-3 col-sm-4">
+                                    <div class="pull-action pull-item_info-right">
+                                        <span class="icon icon-ok-green"></span>
+                                        <span class="icon icon-cancel-red"></span>
+                                    </div>
+                                    <div class="pull-action-moderator pull-item_info-right">
+                                        <span>На модераторстве</span>
+                                        <a href="#">Vasy32</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination clearfix  js-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- footer start -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-push-4 col-lg-6 col-lg-push-3">
+          <div class="row">
+            <div class="col-xs-12 col-lg-6">
+              <ul class="list-unstyled">
+                <li><a href="#">Вход в личный кабинет</a></li>
+                <li><a href="#">Помощь</a></li>
+                <li><a href="#">Вопросы и ответы</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+              <ul class="list-unstyled">
+                <li><a href="#">Компания</a></li>
+                <li><a href="#">Условия использования</a></li>
+                <li><a href="#">Контакты</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-md-push-4 col-lg-3 col-lg-push-3">
+          <div class="social-icons">
+            <a href="#" class="social-link"><span class="icon icon-fb"></span></a>
+            <a href="#" class="social-link"><span class="icon icon-vk"></span></a>
+            <a href="#" class="social-link"><span class="icon icon-tw"></span></a>
+            <a href="#" class="social-link"><span class="icon icon-ok"></span></a>
+          </div>
+          <p><a href="index.html">Netgamer</a> в социальных сетях</p>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-md-pull-8 col-lg-3 col-lg-pull-9">
+          <p class="copyright">Netgamer &copy; 2015</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal modal-form fade" id="profile-modal" tabindex="-1" role="dialog">
+    <div class="container">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">ПРОФИЛЬ</h2>
+          </div>
+
+          <form novalidate>
+            <div class="modal-body">
+              <h4><strong>Данные пользователя</strong></h4>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="name" class="control-label">Имя</label>
+                  <input type="text" id="name" class="form-control input-lg error" value="Ivanstrygelsky">
+                </div>
+
+                <div class="col-md-3">
+                  <label for="lastname" class="control-label">Фамилия</label>
+                  <input type="text" id="lastname" class="form-control input-lg">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">Получите дополнительные 200 баллов за регистрацию через телеон</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="mname" class="control-label">Отчество</label>
+                  <input type="text" id="mname" class="form-control input-lg">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="age" class="control-label">Возраст</label>
+                  <input type="text" id="age" class="form-control input-lg">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">Получите дополнительные 200 баллов за регистрацию через телеон</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-next pull-right">Продолжить</button>
+
+              <div class="checkbox">
+                <input type="checkbox" id="ch" checked>
+                <span class="checkbox-control"></span>
+                <label for="ch">После завершения регистрации перейти к заполнению профиля</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-form modal-reg fade" id="reg-step1" tabindex="-1" role="dialog"
+       data-check-clear="true" data-backdrop="static" data-keyboard="false">
+    <div class="container">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" data-dismiss="modal"><span class="icon icon-close-gray"></span></span>
+
+            <span class="modal-step">ШАГ 1/2</span>
+
+            <h2 class="modal-title">РЕГИСТРАЦИЯ</h2>
+          </div>
+
+          <form id="reg-step1-form" class="js-disable-dynamic" method="post" data-next="#reg-step2" novalidate>
+            <div class="modal-body">
+              <h4><strong>Основные</strong></h4>
+
+              <div class="form-group form-group-fixed row">
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label for="login" class="control-label">Логин</label>
+                  <input type="text" id="login" class="form-control input-lg  js-login-input" name="login"
+                         data-validation="required"
+                         data-validation-error-msg="Введите логин">
+                </div>
+
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label class="control-label">Домен регистрации</label>
+
+                  <select name="domain_id">
+                    <option value="73">netgamer.ru</option>
+                    <option value="2">netgamer.com</option>
+                    <option value="3">netgamer.by</option>
+                    <option value="4">netgamer.net</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label class="control-label"></label>
+
+                  <div id="reg-step1-errors"></div>
+
+                  <div class="hidden js-login-exists">
+                    <span class="js-current-login"></span><span class="text-muted">.netgamer.ru</span>
+                    <br/>
+                    <span class="text-danger">имя занято</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-3 pull-right">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right hidden  js-login-exists" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">
+                      <p><strong>Такой логин уже существует, попробуйте такие варианты:</strong></p>
+
+                      <div class="js-login-options"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group form-group-fixed row" id="pass-strength">
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label for="pass" class="control-label">Пароль</label>
+
+                  <input type="password" id="pass" class="form-control input-lg pass-strength" name="pass_confirmation"
+                         data-validation="length"
+                         data-validation-length="min8"
+                         data-validation-error-msg="Пароль должен быть не менее 8 символов"
+                  >
+                </div>
+
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label for="pass_confirm" class="control-label">Повторите пароль</label>
+                  <input type="password" id="pass_confirm" class="form-control input-lg" name="pass"
+                         data-validation="confirmation"
+                         data-validation-error-msg="Пароли не совпадают"
+                  >
+                </div>
+
+                <div class="col-sm-4 col-md-3">
+                  <label class="control-label"></label>
+
+                  <div id="progress-viewport"></div>
+
+                  <strong>Пароль:</strong> <span class="password-verdict" id="password-verdict"></span>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!--<button type="submit" class="btn btn-next pull-right">Далее</button>-->
+              <button type="submit" class="btn btn-next pull-right">Далее</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-form modal-reg fade" id="reg-step2" tabindex="-1" role="dialog"
+       data-check-clear="true" data-backdrop="static" data-keyboard="false">
+    <div class="container">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" data-dismiss="modal"><span class="icon icon-close-gray"></span></span>
+
+            <span class="modal-step">
+              <span class="icon arrow-select arrow-back" data-toggle="modal" data-target="#reg-step1"></span> ШАГ 2/2
+            </span>
+
+            <h2 class="modal-title">РЕГИСТРАЦИЯ</h2>
+          </div>
+
+          <form id="reg-step2-form" method="post" novalidate>
+            <div class="modal-body">
+              <p>
+                Защитите свой аккаунт привязав его к своему почтовому ящику и/или мобильному телефону. За помощь в создании безопасной учетной записи вы получите дополнительные балы которые сможете использовать на свое усмотрение.
+              </p>
+
+              <div class="form-group form-group-fixed row">
+                <div class="col-md-6">
+                  <label class="control-label"></label>
+
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group mb-xs">
+                      <div class="input-group-btn">
+                        <select class="no-right-border  js-select-countries  js-no-init"></select>
+                      </div>
+
+                      <input type="text" class="form-control input-lg  js-phone-control js-code-input" id="reg-code-phone" name="phone"
+                             data-validation="phone_custom">
+
+                      <div class="input-group-btn hidden-xs">
+                        <button type="button" class="btn btn-success btn-lg btn-reg-send  js-send-code js-timer-button"
+                                data-code-input="#reg-code-phone"
+                                data-code-result="#reg-code-phone-result">
+                          Отправить код</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="visible-xs mb-xs">
+                    <button type="button" class="btn btn-success btn-block btn-lg btn-reg-send  js-send-code js-timer-button"
+                            data-code-input="#reg-code-phone"
+                            data-code-result="#reg-code-phone-result"
+                    >Отправить код</button>
+                  </div>
+
+                </div>
+
+                <div class="col-xs-9 col-md-2 mb-xs">
+                  <label class="control-label"></label>
+
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group">
+                      <input type="text" class="form-control input-lg  js-code-result" id="reg-code-phone-result" maxlength="4" name="code.phone" placeholder="Код в SMS"
+                             data-validation="length"
+                             data-validation-length="min4"
+                             data-validation-error-msg="Введите код">
+
+                      <div class="input-group-btn">
+                        <div class="form-control-check">
+                          <!--<span class="icon icon-success"></span>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4 pull-right">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">
+                      <p>Получите дополнительные 200 баллов за регистрацию через телеон</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-or">
+                <p>Или</p>
+              </div>
+
+              <div class="form-group form-group-fixed row">
+                <div class="col-md-6">
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group col-xs-12 mb-xs">
+                      <input type="text" class="form-control input-lg  js-code-input" id="reg-code-email" name="email" placeholder="E-mail"
+                             data-validation="email_custom"
+                      >
+
+                      <div class="input-group-btn hidden-xs">
+                        <button type="button" class="btn btn-success btn-lg btn-reg-send  js-send-code js-timer-button"
+                                data-code-input="#reg-code-email"
+                                data-code-result="#reg-code-email-result"
+                        >Отправить код</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="visible-xs mb-xs">
+                    <button type="button" class="btn btn-success btn-block btn-lg btn-reg-send  js-send-code js-timer-button"
+                            data-code-input="#reg-code-email"
+                            data-code-result="#reg-code-email-result"
+                    >Отправить код</button>
+                  </div>
+
+                </div>
+
+                <div class="col-xs-9 col-md-2 mb-xs">
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group">
+                      <input type="text" class="form-control input-lg  js-code-result" id="reg-code-email-result" maxlength="4" name="code.email" placeholder="Код в E-mail"
+                             data-validation="length"
+                             data-validation-length="min4"
+                             data-validation-error-msg="Введите код">
+
+                      <div class="input-group-btn">
+                        <div class="form-control-check">
+                          <!--<span class="icon icon-error"></span>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4 pull-right">
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">
+                      <p>Получите дополнительные 200 баллов за регистрацию через телеон</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="clearfix">
+                <div class="checkbox pull-left">
+                  <input type="checkbox" id="pr">
+                  <span class="checkbox-control"></span>
+                  <label for="pr">После завершения регистрации перейти к заполнению профиля</label>
+                </div>
+
+                <button type="submit" class="btn btn-next pull-right">Зарегистрироваться</button>
+              </div>
+
+              <div class="js-register-error-msg"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="drive-modal" tabindex="-1" role="dialog">
+    <div class="drive">
+      <div class="container">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="drive-menu">
+                      menu
+
+                      <div class="drive-menu-header">
+                        <div class="checkbox">
+                          <input type="checkbox" id="all" checked>
+                          <span class="checkbox-control"></span>
+                          <label for="all"></label>
+                        </div>
+                      </div>
+
+
+                      <div class="drive-menu-item">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="row">
+                    list
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--<div class="bg-image-wrapper" style="background-image:url(../assets/img/podsite-bg.jpg)"></div>-->
+<!-- footer end -->
+
+<!-- build:js:inline js/production.path.js -->
+<script>
+  var baseUrl = 'http://netgamer.zone/ajax/';
+</script>
+<!-- /build -->
+
+<script src="../assets/js/all.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+@include(DS . 'theme' . DS  . session('theme') . DS . 'errors' . DS . '404', ['ssr' => null])

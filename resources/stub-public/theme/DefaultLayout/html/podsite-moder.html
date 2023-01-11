@@ -1,0 +1,3136 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>netgamer</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic-ext">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic-ext">
+  <link rel="stylesheet" href="../assets/style/legacy.css"/>
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv/dist/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="is-moderator">
+
+<div id="navbar" class="navbar navbar-icons">
+  <div class="container">
+    <!-- unauthorized user -->
+    <div class="navbar-auth-dropdown dropdown  js-dropdown-auth">
+      <button id="auth-dropdown" class="btn btn-success btn-auth" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="icon icon-navbar-profile"></span>
+        АВТОРИЗАЦИЯ
+      </button>
+
+      <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="auth-dropdown">
+        <form class="js-auth-form" action="#" method="post" novalidate>
+          <div class="form-group no-m">
+            <input type="text" class="form-control input-lg" name="login" placeholder="E-mail/Телефон/Логин"
+                   data-validation="required"
+                   data-validation-error-msg="Заполните поле"
+                    />
+          </div>
+
+          <div class="form-group no-m">
+            <input type="password" class="form-control input-lg" name="password" placeholder="Пароль"
+                   data-validation="required"
+                   data-validation-error-msg="Введите пароль" />
+          </div>
+
+          <div class="navbar-auth-buttons">
+            <div class="js-auth-error"></div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-login">ВОЙТИ</button>
+
+            <button type="button" class="btn btn-success btn-lg btn-register" data-toggle="modal" data-target="#reg-step1">
+              РЕГИСТРАЦИЯ
+            </button>
+          </div>
+
+          <a href="#"><small>Забыли пароль?</small></a>
+
+          <div class="navbar-auth-social">
+            <a href="#" class="btn btn-lg btn-fb">FACEBOOK</a>
+            <a href="#" class="btn btn-lg btn-vk">ВКОНТАКТЕ</a>
+            <a href="#" class="btn btn-lg btn-tw">TWITTER</a>
+            <a href="#" class="btn btn-lg btn-gp">GOOGLE+</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- unauthorized user end -->
+
+    <!-- authorized user -->
+    <!--<div class="navbar-user navbar-user-sm dropdown">
+      <div id="personal-dropdown" class="navbar-user-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="navbar-user-av">
+          <div class="navbar-user-av-block">
+            <img src="http://placehold.it/40x40" width="40" height="40" alt=""/>
+            <span class="notification-counter">33</span>
+          </div>
+        </div>
+        <div class="navbar-user-info">
+          <p class="navbar-user-name">Вася Москаленко</p>
+
+          <p class="navbar-user-role">Писатель 20 lvl</p>
+        </div>
+      </div>
+
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="personal-dropdown">
+        <ul class="navbar-account">
+          <li><a href="#" class="navbar-account-item">ИСТОРИЯ</a></li>
+          <li><a href="#" class="navbar-account-item">ЛОГИ</a></li>
+          <li><a href="#" class="navbar-account-item">ЛИЧНЫЙ КАБИНЕТ</a></li>
+          <li><a href="#" class="navbar-account-item">ДРУЗЬЯ</a></li>
+          <li><a href="#" class="navbar-account-item">ИЗБРАННОЕ</a></li>
+          <li><a href="#" class="navbar-account-item">МОЙ ДИСК</a></li>
+          <li><a href="#" class="navbar-account-item  js-sign-out">ВЫХОД</a></li>
+        </ul>
+      </div>
+    </div>-->
+    <!-- authorized user end -->
+
+    <div class="navbar-search-wrapper">
+      <ul class="navbar-menu clearfix">
+        <li class="navbar-left-item">
+          <a href="#" class="navbar-menu-item" data-toggle="modal" data-target="#drive-modal">
+            <span class="icon icon-navbar-folder"></span>
+          </a>
+        </li>
+
+        <li class="navbar-left-item visible-md visible-lg">
+          <a href="#" class="navbar-menu-item">
+            <span class="icon icon-navbar-global"></span>
+          </a>
+        </li>
+
+        <li class="navbar-left-item">
+          <div id="navbar-search" class="navbar-search">
+            <button type="button" id="navbar-search-button" class="navbar-search-button">
+              <span class="icon icon-navbar-search"></span>
+            </button>
+            <form class="navbar-search-form" novalidate>
+              <input type="text" class="navbar-search-field" placeholder="Поиск по сайту" />
+              <button type="submit" class="navbar-search-submit input-lg">
+                <span class="icon icon-search"></span>
+              </button>
+            </form>
+          </div>
+        </li>
+
+        <li class="navbar-right-item">
+          <ul class="list-unstyled">
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-chat"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-messages"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-profile"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-bookmarks"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-settings"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-events"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--<button type="button" id="navbar-toggle" class="navbar-toggle"><span class="icon arrow"></span></button>-->
+</div>
+
+<header class="main-header-podsite" style="
+background: #000000 url(assets/img/podsite-bg.jpg) no-repeat center;
+background-size: auto 100%;
+">
+    <!-- /build -->
+    <div>
+        <div class="hero">
+            <div class="container">
+                <div class="col-xs-12">
+                    <div class="row logo-container">
+                        <div class="age pull-right">
+                            Возрастное ограничение 16+
+                        </div>
+                        <a href="#" class="logo">
+                            <div class="logo-letter"><span>N</span></div>
+                            <div href="#" class="logo-text">
+                                <span class="logo-title">netgamer</span>
+                                <span class="logo-slogan">сообщество геймеров</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <nav style="display: none;">
+                          <a href="#" class="main-nav-toggle" id="main-nav-toggle"><span class="icon icon-sandwich"></span> Меню</a>
+
+                          <ul id="main-nav" class="main-nav">
+                            <li class="overlap-menu-dropdown">
+                              <button id="menu-dropdown" class="btn-menu-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="icon icon-sandwich"></span>
+                              </button>
+
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu-dropdown">
+                                <ul class="main-nav-overlap list-unstyled">
+                                  <li>
+                                    <a href="#" class="main-nav-item">РАЗДЕЛЫ</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">СТАТЬИ</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">СООБЩЕСТВА</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">САЙТЫ</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+
+                            <li>
+                              <a href="#" class="main-nav-item">РАЗДЕЛЫ</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item">СТАТЬИ</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item">СООБЩЕСТВА</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item main-nav-item-active">САЙТЫ</a>
+                            </li>
+                          </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header end -->
+
+
+<div id="top-carousel-thumbs" class="slider-thumbs top-slider-thumbs jcarousel">
+    <div class="jcarousel-list">
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Как завести в Google Cloud, подцепить к нему Bucket Google.</p>
+                    <a href="#" class="small">Baseum.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Valve покажет очки виртуальной реальности</p>
+                    <a href="#" class="small">Ruttacker.org</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Bethesda на E3: Dishonored, Wolfenstein, Evil Within. А где Fallout?</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Crytek и динозавры: пора покупать очки виртуальной реальности</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>5</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>6</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>7</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="articles">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="#">Главная</a></li>
+      <li class="active">Сайты</li>
+    </ol>
+
+  </div>
+
+  <div class="article-heading">
+    <div class="container">
+      <h1><strong>НАЗВАНИЕ РАЗДЕЛА ИГРОВОЕ СООБЩЕСТВО</strong></h1>
+
+      <div id="collapse-heading" class="panel-collapse collapse in">
+        <p>Если вы ждали StarCraft: Ghost, некогда анонсированный, но так никогда и не вышедший шутер от Blizzapd в знаменитой то у вас еще есть возможность посмотреть, каким он мог бы стать. Модификация Psionic Warfare: Total Destruction превратит StarCraft в шутер от третьего лица. 4. Рекламный баннер должен иметь видимые границы</p>
+      </div>
+
+      <div class="collapse-toggle-wrapper">
+        <a role="button" data-toggle="collapse" class="collapse-toggle" href="#collapse-heading" aria-expanded="true">
+          <span class="icon icon-toggle-section"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="moderation-header clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-lg-9">
+          <p class="moderation-title">
+            РАЗДЕЛЫ
+
+            <a href="podsite.html"><span class="icon icon-fire"></span></a>
+          </p>
+
+          <div class="moderation-actions">
+            <div class="moderation-actions-inner">
+              <div class="moderation-selected">
+                <p>Выбрано 228</p>
+              </div>
+
+              <div class="checkbox-group-inline">
+                <div class="checkbox checkbox-right light">
+                  <label for="check-page">Все на странице</label>
+
+                  <input type="checkbox" id="check-page" class="js-check-page">
+                  <span class="checkbox-control"></span>
+                </div>
+
+                <div class="checkbox checkbox-right light">
+                  <label for="check-all">Выбрать все</label>
+
+                  <input type="checkbox" id="check-all" class="js-check-all">
+                  <span class="checkbox-control"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <div class="pull-right">
+            <button type="button" class="btn btn-primary btn-lg btn-xlg" data-toggle="modal" data-target="#complaint-article-moder">
+              Применить действие
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        <div class="view-section">
+          <div class="view-section-heading clearfix">
+            <div class="view-icons pull-right">
+              <a role="button" data-toggle="collapse" class="collapse-toggle" href="#collapse-1" aria-expanded="true">
+                <span class="icon icon-toggle-section"></span>
+              </a>
+            </div>
+
+            <div class="view-section-actions">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+
+              <div class="view-search pull-right">
+                <input type="text" class="view-search-input" placeholder="Фильтр по заголовкам">
+
+                <button type="submit" class="view-search-button">
+                  <span class="icon icon-search-black"></span>
+                </button>
+              </div>
+
+              <div class="view-sort pull-left">
+                <select class="select-sort no-bg bold thin">
+                  <option value="1">Кол-во комментариев</option>
+                  <option value="2">Кол-во</option>
+                  <option value="3">Кол-во комментариев</option>
+                  <option value="4">Кол-во комментариев</option>
+                  <option value="5">Кол-во комментариев</option>
+                </select>
+              </div>
+
+              <div class="view-icons view-icons-sort">
+                <a href="#" class="view-icon"><span class="icon icon-sort"></span></a>
+              </div>
+            </div>
+          </div>
+
+          <div id="collapse-1" class="panel-collapse collapse in">
+            <div class="list-items hidden" data-view="list">
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="sections_list-item-1"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-sections_list-1">Выбрать</label>
+
+                      <input type="checkbox" id="check-sections_list-1" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="sections_list-item-1">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="sections_list-item-2"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-sections_list-2">Выбрать</label>
+
+                      <input type="checkbox" id="check-sections_list-2" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="sections_list-item-2">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="sections_list-item-3"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-sections_list-3">Выбрать</label>
+
+                      <input type="checkbox" id="check-sections_list-3" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="sections_list-item-3">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="sections_list-item-4"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-sections_list-4">Выбрать</label>
+
+                      <input type="checkbox" id="check-sections_list-4" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="sections_list-item-4">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-items hidden" data-view="grid">
+              <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+                      <span class="grid-item-category">valve club</span>
+                      <span class="grid-item-rating rating rating-white">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <div class="navbar-user navbar-user-white">
+                        <div class="navbar-user-av">
+                          <div class="navbar-user-av-block">
+                            <img src="http://placehold.it/70x70" width="70" height="70" alt=""/>
+                          </div>
+                        </div>
+                        <div class="navbar-user-info">
+                          <p class="navbar-user-name">Вася Москаленко</p>
+
+                          <p class="navbar-user-role">Писатель 20 lvl</p>
+                        </div>
+                      </div>
+
+                      <p class="grid-item-date"><small>11 марта в 21:05</small></p>
+
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1990</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-like"></span> <small>90</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-comments"></span> <small>199</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-sections_grid-1">Выбрать</label>
+
+                            <input type="checkbox" id="check-sections_grid-1" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+                      <span class="grid-item-category">новости</span>
+                      <span class="grid-item-rating rating rating-white">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <p class="grid-item-date"><small>11 марта в 21:05</small></p>
+
+                      <a href="#" class="grid-item-title">
+                        <strong>Как завести в Google Cloud,  подцепить к нему Bucket Google.</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-like"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-comments"></span> <small>1 990 000</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-sections_grid-2">Выбрать</label>
+
+                            <input type="checkbox" id="check-sections_grid-2" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="grid-item-text">
+                        <p>Если вы ждали StarCraft: Ghost, некогда анонсированный, но так никогда и не вышедший шутер от Blizzapd в знаменитой</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+                      <span class="grid-item-category">новости</span>
+                      <span class="grid-item-rating rating rating-white">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <p class="grid-item-date"><small>11 марта в 21:05</small></p>
+
+                      <a href="#" class="grid-item-title">
+                        <strong>Что не так с онлайн-курсами и как это исправить: опыт HTML Academy</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-like"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-comments"></span> <small>1 990 000</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-sections_grid-3">Выбрать</label>
+
+                            <input type="checkbox" id="check-sections_grid-3" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="grid-item-text">
+                        <p>Если вы ждали StarCraft: Ghost, некогда анонсированный, но так никогда и не вышедший шутер от Blizzapd в знаменитой</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="view-section">
+          <div class="view-section-heading clearfix">
+            <div class="view-icons pull-right">
+              <a role="button" data-toggle="collapse" class="collapse-toggle" href="#collapse-2" aria-expanded="true">
+                <span class="icon icon-toggle-section"></span>
+              </a>
+            </div>
+
+            <h2 class="main-heading">СТАТЬИ</h2>
+
+            <div class="view-section-actions">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon active" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+
+              <div class="view-search pull-right">
+                <input type="text" class="view-search-input" placeholder="Фильтр по заголовкам">
+
+                <button type="submit" class="view-search-button">
+                  <span class="icon icon-search-black"></span>
+                </button>
+              </div>
+
+              <div class="view-sort pull-left">
+                <select class="select-sort no-bg bold thin">
+                  <option value="1">Кол-во комментариев</option>
+                  <option value="2">Кол-во</option>
+                  <option value="3">Кол-во комментариев</option>
+                  <option value="4">Кол-во комментариев</option>
+                  <option value="5">Кол-во комментариев</option>
+                </select>
+              </div>
+
+              <div class="view-icons view-icons-sort">
+                <a href="#" class="view-icon"><span class="icon icon-sort"></span></a>
+              </div>
+            </div>
+          </div>
+
+          <div id="collapse-2" class="panel-collapse collapse in">
+            <div class="list-items hidden" data-view="list">
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="articles_list-item-1"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-articles_list-1">Выбрать</label>
+
+                      <input type="checkbox" id="check-articles_list-1" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="articles_list-item-1">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Первый тест нового Mitsubishi Outlander: «Я не узнаю вас в
+                      гриме!»</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-articles_list-2">Выбрать</label>
+
+                      <input type="checkbox" id="check-articles_list-2" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <p>Если вы ждали StarCraft: Ghost, некогда анонсированный, но так никогда и не вышедший шутер </p>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-articles_list-3">Выбрать</label>
+
+                      <input type="checkbox" id="check-articles_list-3" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <p>Если вы ждали StarCraft: Ghost, некогда анонсированный, но так никогда и не вышедший шутер </p>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-articles_list-4">Выбрать</label>
+
+                      <input type="checkbox" id="check-articles_list-4" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-items hidden" data-view="grid">
+              <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+                      <span class="grid-item-category">valve club</span>
+                      <span class="grid-item-rating rating rating-white">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <div class="navbar-user navbar-user-white">
+                        <div class="navbar-user-av">
+                          <div class="navbar-user-av-block">
+                            <img src="http://placehold.it/70x70" width="70" height="70" alt=""/>
+                          </div>
+                        </div>
+                        <div class="navbar-user-info">
+                          <p class="navbar-user-name">Вася Москаленко</p>
+
+                          <p class="navbar-user-role">Писатель 20 lvl</p>
+                        </div>
+                      </div>
+
+                      <p class="grid-item-date"><small>11 марта в 21:05</small></p>
+
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="articles_grid-item-1"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-comments"></span> <small>1 990 000</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-articles_grid-1">Выбрать</label>
+
+                            <input type="checkbox" id="check-articles_grid-1" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="articles_grid-item-1">
+                          <p>
+                            <a href="#">
+                              <span class="icon icon-comments-light"></span>
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#">
+                              <span class="icon icon-comments-light"></span>
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+                      <span class="grid-item-category">новости</span>
+                      <span class="grid-item-rating rating rating-white">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <p class="grid-item-date"><small>11 марта в 21:05</small></p>
+
+                      <a href="#" class="grid-item-title">
+                        <strong>Как завести в Google Cloud,  подцепить к нему Bucket Google.</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="articles_grid-item-2"></a>
+
+                        <div class="item-param">
+                          <span class="icon icon-comments"></span> <small>1 990 000</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-articles_grid-2">Выбрать</label>
+
+                            <input type="checkbox" id="check-articles_grid-2" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="articles_grid-item-2">
+                          <p>
+                            <a href="#">
+                              <span class="icon icon-comments-light"></span>
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#">
+                              <span class="icon icon-comments-light"></span>
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="grid-item-text">
+                        <p>Если вы ждали StarCraft: Ghost, некогда анонсированный, но так никогда и не вышедший шутер от Blizzapd в знаменитой</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+                      <span class="grid-item-category">новости</span>
+                      <span class="grid-item-rating rating rating-white">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <p class="grid-item-date"><small>11 марта в 21:05</small></p>
+
+                      <a href="#" class="grid-item-title">
+                        <strong>Что не так с онлайн-курсами и как это исправить: опыт HTML Academy</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="articles_grid-item-3"></a>
+
+                        <div class="item-param">
+                          <span class="icon icon-comments"></span> <small>1 990 000</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-articles_grid-3">Выбрать</label>
+
+                            <input type="checkbox" id="check-articles_grid-3" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="articles_grid-item-3">
+                          <p>
+                            <a href="#">
+                              <span class="icon icon-comments-light"></span>
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#">
+                              <span class="icon icon-comments-light"></span>
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="grid-item-text">
+                        <p>Если вы ждали StarCraft: Ghost, некогда анонсированный, но так никогда и не вышедший шутер от Blizzapd в знаменитой</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pagination clearfix  js-pagination"></div>
+          </div>
+        </div>
+
+        <div class="view-section">
+          <div class="view-section-heading clearfix">
+            <div class="view-icons pull-right">
+              <a role="button" data-toggle="collapse" class="collapse-toggle" href="#collapse-3" aria-expanded="true">
+                <span class="icon icon-toggle-section"></span>
+              </a>
+            </div>
+
+            <h2 class="main-heading">СООБЩЕСТВА</h2>
+
+            <div class="view-section-actions">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon active" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+
+              <div class="view-search pull-right">
+                <input type="text" class="view-search-input" placeholder="Фильтр по заголовкам">
+
+                <button type="submit" class="view-search-button">
+                  <span class="icon icon-search-black"></span>
+                </button>
+              </div>
+
+              <div class="view-sort pull-left">
+                <select class="select-sort no-bg bold thin">
+                  <option value="1">Кол-во комментариев</option>
+                  <option value="2">Кол-во</option>
+                  <option value="3">Кол-во комментариев</option>
+                  <option value="4">Кол-во комментариев</option>
+                  <option value="5">Кол-во комментариев</option>
+                </select>
+              </div>
+
+              <div class="view-icons view-icons-sort">
+                <a href="#" class="view-icon"><span class="icon icon-sort"></span></a>
+              </div>
+            </div>
+          </div>
+
+          <div id="collapse-3" class="panel-collapse collapse in">
+            <div class="list-items hidden" data-view="list">
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="communities_list-item-1"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-communities_list-1">Выбрать</label>
+
+                      <input type="checkbox" id="check-communities_list-1" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="communities_list-item-1">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="communities_list-item-2"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-communities_list-2">Выбрать</label>
+
+                      <input type="checkbox" id="check-communities_list-2" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="communities_list-item-2">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="communities_list-item-3"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-communities_list-3">Выбрать</label>
+
+                      <input type="checkbox" id="check-communities_list-3" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="communities_list-item-3">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-item-wrapper clearfix">
+                  <a href="#" class="list-item-dropdown-toggle" data-dropdown-toggle="communities_list-item-4"></a>
+
+                  <div class="list-item-params">
+                    <span class="list-item-rating rating rating-gray">7.5</span>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-views"></span> 1 990
+                    </p>
+
+                    <p class="list-item-param hidden-xs text-muted">
+                      <span class="icon icon-communities"></span> 1 000 000
+                    </p>
+                  </div>
+
+                  <div class="list-item-image">
+                    <div class="list-item-image-wrapper">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/200x110">
+                        <img src="http://placehold.it/200x180" alt=""/>
+                      </picture>
+
+                      <span class="list-item-rating rating rating-white">7.5</span>
+
+                      <span class="list-item-category">civilization.netgamer.ru</span>
+                    </div>
+                  </div>
+
+                  <div class="list-item-desc">
+                    <a href="#" class="list-item-title"><strong>Что не так с онлайн-курсами и как это исправить: опыт HTML
+                      Academy</strong></a>
+
+                    <div class="list-item-info">
+                      <p>
+                        <span class="icon icon-tags"></span> Новости hi-tech
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="list-item-check">
+                    <div class="checkbox checkbox-right light">
+                      <label for="check-communities_list-4">Выбрать</label>
+
+                      <input type="checkbox" id="check-communities_list-4" class="js-check">
+                      <span class="checkbox-control"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="list-item-dropdown clearfix" data-dropdown="communities_list-item-4">
+                  <div class="col-xs-12">
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#">
+                        <span class="icon icon-comments-light"></span>
+                        Обсуждение вышедших игр для РС
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-items hidden" data-view="grid">
+              <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-1"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-1">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-1" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-1">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-2"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-2">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-2" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-2">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-3"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-3">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-3" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-3">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-4"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-4">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-4" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-4">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-5"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-5">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-5" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-5">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-6"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-6">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-6" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-6">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-7"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-7">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-7" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-7">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-8"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-8">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-8" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-8">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                  <div class="grid-item">
+                    <a href="#" class="grid-item-image">
+                      <picture>
+                        <source media="(min-width: 1240px)" srcset="http://placehold.it/300x170">
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/480x250">
+                        <source media="(max-width: 480px)" srcset="http://placehold.it/480x250">
+                        <img src="http://placehold.it/768x300" />
+                      </picture>
+
+
+                      <span class="grid-item-rating rating rating-white rating-square">7.5</span>
+                    </a>
+
+                    <div class="grid-item-desc">
+                      <a href="#" class="grid-item-title">
+                        <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                      </a>
+
+                      <div class="item-params">
+                        <a href="#" class="grid-item-dropdown-toggle" data-dropdown-toggle="communities_grid-item-9"></a>
+
+                        <div class="item-param item-param-block text-muted">
+                          <span class="icon icon-tags"></span> <small>Новости hi-tech</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-communities"></span> <small>1 990 000</small>
+                        </div>
+                        <div class="item-param">
+                          <span class="icon icon-views"></span> <small>1 999</small>
+                        </div>
+
+                        <div class="grid-item-check">
+                          <div class="checkbox checkbox-right light">
+                            <label for="check-communities_grid-9">Выбрать</label>
+
+                            <input type="checkbox" id="check-communities_grid-9" class="js-check">
+                            <span class="checkbox-control"></span>
+                          </div>
+                        </div>
+
+                        <div class="grid-item-dropdown clearfix" data-dropdown="communities_grid-item-9">
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение ожидаемых игр
+                            </a>
+                          </p>
+                          <p>
+                            <a href="#" class="grid-item-dropdown-link">
+                              <span class="rating rating-sm rating-white rating-square rating-inline">7.5</span>
+
+                              Обсуждение технических вопросов по играм для РС
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pagination clearfix  js-pagination"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="sidebar sidebar-subsite">
+          <div class="sidebar-block">
+            <div class="topic-list-item yellow">
+              <div class="topic-title">
+                <a href="#" class="topic-list-toggle pull-right">ЗА МЕСЯЦ</a>
+
+                <strong>КОММЕНТИРУЕМОЕ</strong>
+              </div>
+              <div class="topic-body">
+                <div class="scrollable">
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>Как завести в Google Cloud,  подцепить к нему Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>подцепить Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>1подцепить Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>2подцепить Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item-more">
+                    <a href="#" class="btn btn-primary btn-block" data-more>Показать еще</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="topic-list-item yellow">
+              <div class="topic-title">
+                <strong>ЧИТАЕМОЕ</strong>
+              </div>
+              <div class="topic-body">
+                <div class="scrollable">
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>Как завести в Google Cloud,  подцепить к нему Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title">
+                      <picture>
+                        <source media="(min-width: 768px)" srcset="http://placehold.it/300x200">
+                        <img src="http://placehold.it/768x200" alt="">
+                      </picture>
+
+                      <strong>Valve покажет очки виртуальной реальности и другие устройства на GDC</strong>
+                    </a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>подцепить Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>1подцепить Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item">
+                    <a href="#" class="topic-item-title"><strong>2подцепить Bucket Google.</strong></a>
+                    <p><small>11 марта в 21:05</small></p>
+                    <div class="item-params">
+                      <div class="item-param">
+                        <span class="icon icon-views"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-like"></span> <small>1 990 000</small>
+                      </div>
+                      <div class="item-param">
+                        <span class="icon icon-comments"></span> <small>1 990 000</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="topic-item-more">
+                    <a href="#" class="btn btn-primary btn-block" data-more>Показать еще</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="btn-create-post"><span class="icon icon-pencil"></span></a>
+</section>
+
+<div class="modal modal-middle modal-complaint no-border fade  js-modal-clear" id="complaint-article-moder" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        <span class="icon icon-error"></span>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-icon">
+          <span class="icon icon-complaint-big"></span>
+        </div>
+
+        <p><strong>Пожаловаться на статью\комментарий</strong></p>
+      </div>
+
+
+      <div class="modal-body">
+        <p>
+          <strong>Статья:</strong> Как прокачать перса за 2 часа
+        </p>
+
+        <p>
+          <strong>Автор:</strong> Гарик Бульдог Харламов
+        </p>
+
+        <p>
+          <strong>URL:</strong> netgamer.ru\games\diablo3\personages\warvar\kak-prokachat-persa-za-2-chasa
+        </p>
+
+        <form class="modal-complaint-form  js-complaint-form js-disable-dynamic" novalidate>
+          <div class="form-group">
+            <select class="select-tags no-border" data-placeholder="Действие" name="action"
+                    data-validation="required"
+                    data-validation-error-msg="Выберите действие">
+              <option></option>
+              <option value="1">Наказать</option>
+              <option value="2">Помиловать</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select class="select-tags no-border" multiple data-placeholder="Причина" name="reason"
+                    data-validation="required"
+                    data-validation-error-msg="Укажите причину">
+              <option value="14.01">Первая причина</option>
+              <option value="14.02">Вторая причина</option>
+              <option value="14.03">Третья причина</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control no-border" name="message" placeholder="Комментарий"
+                      data-validation="required"
+                      data-validation-error-msg="Напишите комментарий"></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <div class="form-group">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-success btn-lg">Отправить жалобу</button>
+              </div>
+
+              <button type="button" class="btn btn-dark btn-lg" data-dismiss="modal">Отмена</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="more-on-topic">
+  <div class="container">
+    <h2 class="main-heading">ЕЩЕ ПО ТЕМЕ</h2>
+
+    <div class="row">
+      <div class="topic-list">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+
+              <h4 class="main-heading">ПОСЛЕДНЕЕ</h4>
+            </div>
+
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/recent">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+              <h4 class="main-heading">ЧИТАЕМОЕ</h4>
+            </div>
+
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/popular">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+              <h4 class="main-heading">ЛУЧШЕЕ</h4>
+            </div>
+
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/best">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+              <a href="#" class="topic-list-toggle">ЗА НЕДЕЛЮ</a>
+              <h4 class="main-heading">ОБСУЖДАЕМОЕ</h4>
+            </div>
+
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/discussed">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="other">
+  <div class="container">
+    <h2 class="main-heading inverse">О ДРУГОМ</h2>
+
+    <div class="row">
+      <div class="topic-list topic-list-inverse">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+              <h2 class="main-heading">ПОСЛЕДНЕЕ</h2>
+            </div>
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/recent">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+              <h2 class="main-heading">ЧИТАЕМОЕ</h2>
+            </div>
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/popular">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+              <h2 class="main-heading">ЛУЧШЕЕ</h2>
+            </div>
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/best">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="view-section">
+            <div class="view-section-heading clearfix">
+              <div class="view-icons pull-right">
+                <a href="#" class="view-icon" data-view-button="grid"><span class="icon icon-grid"></span></a>
+                <a href="#" class="view-icon active" data-view-button="list"><span class="icon icon-list"></span></a>
+              </div>
+              <a href="#" class="topic-list-toggle">ЗА НЕДЕЛЮ</a>
+              <h2 class="main-heading">ОБСУЖДАЕМОЕ</h2>
+            </div>
+            <div class="list-items hidden" data-view="list">
+              <div class="topic-list-item topic-carousel carousel">
+                <div class="scrollable">
+                  <div class="bxslider topic-body">
+                    <div class="topic-item-more">
+                      <button type="button" class="btn btn-primary btn-block" data-more data-url="more/discussed">
+                        Показать еще
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- footer start -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-push-4 col-lg-6 col-lg-push-3">
+          <div class="row">
+            <div class="col-xs-12 col-lg-6">
+              <ul class="list-unstyled">
+                <li><a href="#">Вход в личный кабинет</a></li>
+                <li><a href="#">Помощь</a></li>
+                <li><a href="#">Вопросы и ответы</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+              <ul class="list-unstyled">
+                <li><a href="#">Компания</a></li>
+                <li><a href="#">Условия использования</a></li>
+                <li><a href="#">Контакты</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-md-push-4 col-lg-3 col-lg-push-3">
+          <div class="social-icons">
+            <a href="#" class="social-link"><span class="icon icon-fb"></span></a>
+            <a href="#" class="social-link"><span class="icon icon-vk"></span></a>
+            <a href="#" class="social-link"><span class="icon icon-tw"></span></a>
+            <a href="#" class="social-link"><span class="icon icon-ok"></span></a>
+          </div>
+          <p><a href="index.html">Netgamer</a> в социальных сетях</p>
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-md-pull-8 col-lg-3 col-lg-pull-9">
+          <p class="copyright">Netgamer &copy; 2015</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal modal-form fade" id="profile-modal" tabindex="-1" role="dialog">
+    <div class="container">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">ПРОФИЛЬ</h2>
+          </div>
+
+          <form novalidate>
+            <div class="modal-body">
+              <h4><strong>Данные пользователя</strong></h4>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="name" class="control-label">Имя</label>
+                  <input type="text" id="name" class="form-control input-lg error" value="Ivanstrygelsky">
+                </div>
+
+                <div class="col-md-3">
+                  <label for="lastname" class="control-label">Фамилия</label>
+                  <input type="text" id="lastname" class="form-control input-lg">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">Получите дополнительные 200 баллов за регистрацию через телеон</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="mname" class="control-label">Отчество</label>
+                  <input type="text" id="mname" class="form-control input-lg">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="age" class="control-label">Возраст</label>
+                  <input type="text" id="age" class="form-control input-lg">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">Получите дополнительные 200 баллов за регистрацию через телеон</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-next pull-right">Продолжить</button>
+
+              <div class="checkbox">
+                <input type="checkbox" id="ch" checked>
+                <span class="checkbox-control"></span>
+                <label for="ch">После завершения регистрации перейти к заполнению профиля</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-form modal-reg fade" id="reg-step1" tabindex="-1" role="dialog"
+       data-check-clear="true" data-backdrop="static" data-keyboard="false">
+    <div class="container">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" data-dismiss="modal"><span class="icon icon-close-gray"></span></span>
+
+            <span class="modal-step">ШАГ 1/2</span>
+
+            <h2 class="modal-title">РЕГИСТРАЦИЯ</h2>
+          </div>
+
+          <form id="reg-step1-form" class="js-disable-dynamic" method="post" data-next="#reg-step2" novalidate>
+            <div class="modal-body">
+              <h4><strong>Основные</strong></h4>
+
+              <div class="form-group form-group-fixed row">
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label for="login" class="control-label">Логин</label>
+                  <input type="text" id="login" class="form-control input-lg  js-login-input" name="login"
+                         data-validation="required"
+                         data-validation-error-msg="Введите логин">
+                </div>
+
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label class="control-label">Домен регистрации</label>
+
+                  <select name="domain_id">
+                    <option value="73">netgamer.ru</option>
+                    <option value="2">netgamer.com</option>
+                    <option value="3">netgamer.by</option>
+                    <option value="4">netgamer.net</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label class="control-label"></label>
+
+                  <div id="reg-step1-errors"></div>
+
+                  <div class="hidden js-login-exists">
+                    <span class="js-current-login"></span><span class="text-muted">.netgamer.ru</span>
+                    <br/>
+                    <span class="text-danger">имя занято</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-12 col-md-3 pull-right">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right hidden  js-login-exists" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">
+                      <p><strong>Такой логин уже существует, попробуйте такие варианты:</strong></p>
+
+                      <div class="js-login-options"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group form-group-fixed row" id="pass-strength">
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label for="pass" class="control-label">Пароль</label>
+
+                  <input type="password" id="pass" class="form-control input-lg pass-strength" name="pass_confirmation"
+                         data-validation="length"
+                         data-validation-length="min8"
+                         data-validation-error-msg="Пароль должен быть не менее 8 символов"
+                  >
+                </div>
+
+                <div class="col-sm-4 col-md-3 mb-xs">
+                  <label for="pass_confirm" class="control-label">Повторите пароль</label>
+                  <input type="password" id="pass_confirm" class="form-control input-lg" name="pass"
+                         data-validation="confirmation"
+                         data-validation-error-msg="Пароли не совпадают"
+                  >
+                </div>
+
+                <div class="col-sm-4 col-md-3">
+                  <label class="control-label"></label>
+
+                  <div id="progress-viewport"></div>
+
+                  <strong>Пароль:</strong> <span class="password-verdict" id="password-verdict"></span>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!--<button type="submit" class="btn btn-next pull-right">Далее</button>-->
+              <button type="submit" class="btn btn-next pull-right">Далее</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-form modal-reg fade" id="reg-step2" tabindex="-1" role="dialog"
+       data-check-clear="true" data-backdrop="static" data-keyboard="false">
+    <div class="container">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" data-dismiss="modal"><span class="icon icon-close-gray"></span></span>
+
+            <span class="modal-step">
+              <span class="icon arrow-select arrow-back" data-toggle="modal" data-target="#reg-step1"></span> ШАГ 2/2
+            </span>
+
+            <h2 class="modal-title">РЕГИСТРАЦИЯ</h2>
+          </div>
+
+          <form id="reg-step2-form" method="post" novalidate>
+            <div class="modal-body">
+              <p>
+                Защитите свой аккаунт привязав его к своему почтовому ящику и/или мобильному телефону. За помощь в создании безопасной учетной записи вы получите дополнительные балы которые сможете использовать на свое усмотрение.
+              </p>
+
+              <div class="form-group form-group-fixed row">
+                <div class="col-md-6">
+                  <label class="control-label"></label>
+
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group mb-xs">
+                      <div class="input-group-btn">
+                        <select class="no-right-border  js-select-countries  js-no-init"></select>
+                      </div>
+
+                      <input type="text" class="form-control input-lg  js-phone-control js-code-input" id="reg-code-phone" name="phone"
+                             data-validation="phone_custom">
+
+                      <div class="input-group-btn hidden-xs">
+                        <button type="button" class="btn btn-success btn-lg btn-reg-send  js-send-code js-timer-button"
+                                data-code-input="#reg-code-phone"
+                                data-code-result="#reg-code-phone-result">
+                          Отправить код</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="visible-xs mb-xs">
+                    <button type="button" class="btn btn-success btn-block btn-lg btn-reg-send  js-send-code js-timer-button"
+                            data-code-input="#reg-code-phone"
+                            data-code-result="#reg-code-phone-result"
+                    >Отправить код</button>
+                  </div>
+
+                </div>
+
+                <div class="col-xs-9 col-md-2 mb-xs">
+                  <label class="control-label"></label>
+
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group">
+                      <input type="text" class="form-control input-lg  js-code-result" id="reg-code-phone-result" maxlength="4" name="code.phone" placeholder="Код в SMS"
+                             data-validation="length"
+                             data-validation-length="min4"
+                             data-validation-error-msg="Введите код">
+
+                      <div class="input-group-btn">
+                        <div class="form-control-check">
+                          <!--<span class="icon icon-success"></span>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4 pull-right">
+                  <label class="control-label"></label>
+
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">
+                      <p>Получите дополнительные 200 баллов за регистрацию через телеон</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-or">
+                <p>Или</p>
+              </div>
+
+              <div class="form-group form-group-fixed row">
+                <div class="col-md-6">
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group col-xs-12 mb-xs">
+                      <input type="text" class="form-control input-lg  js-code-input" id="reg-code-email" name="email" placeholder="E-mail"
+                             data-validation="email_custom"
+                      >
+
+                      <div class="input-group-btn hidden-xs">
+                        <button type="button" class="btn btn-success btn-lg btn-reg-send  js-send-code js-timer-button"
+                                data-code-input="#reg-code-email"
+                                data-code-result="#reg-code-email-result"
+                        >Отправить код</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="visible-xs mb-xs">
+                    <button type="button" class="btn btn-success btn-block btn-lg btn-reg-send  js-send-code js-timer-button"
+                            data-code-input="#reg-code-email"
+                            data-code-result="#reg-code-email-result"
+                    >Отправить код</button>
+                  </div>
+
+                </div>
+
+                <div class="col-xs-9 col-md-2 mb-xs">
+                  <div class="form-group"> <!-- form-group is for validator plugin -->
+                    <div class="input-group">
+                      <input type="text" class="form-control input-lg  js-code-result" id="reg-code-email-result" maxlength="4" name="code.email" placeholder="Код в E-mail"
+                             data-validation="length"
+                             data-validation-length="min4"
+                             data-validation-error-msg="Введите код">
+
+                      <div class="input-group-btn">
+                        <div class="form-control-check">
+                          <!--<span class="icon icon-error"></span>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4 pull-right">
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">
+                      <p>Получите дополнительные 200 баллов за регистрацию через телеон</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="clearfix">
+                <div class="checkbox pull-left">
+                  <input type="checkbox" id="pr">
+                  <span class="checkbox-control"></span>
+                  <label for="pr">После завершения регистрации перейти к заполнению профиля</label>
+                </div>
+
+                <button type="submit" class="btn btn-next pull-right">Зарегистрироваться</button>
+              </div>
+
+              <div class="js-register-error-msg"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="drive-modal" tabindex="-1" role="dialog">
+    <div class="drive">
+      <div class="container">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="drive-menu">
+                      menu
+
+                      <div class="drive-menu-header">
+                        <div class="checkbox">
+                          <input type="checkbox" id="all" checked>
+                          <span class="checkbox-control"></span>
+                          <label for="all"></label>
+                        </div>
+                      </div>
+
+
+                      <div class="drive-menu-item">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="row">
+                    list
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--<div class="bg-image-wrapper" style="background-image:url(../assets/img/podsite-bg.jpg)"></div>-->
+<!-- footer end -->
+
+<!-- build:js:inline js/production.path.js -->
+<script>
+  var baseUrl = 'http://netgamer.zone/ajax/';
+</script>
+<!-- /build -->
+
+<script src="../assets/js/all.min.js"></script>
+
+</body>
+</html>

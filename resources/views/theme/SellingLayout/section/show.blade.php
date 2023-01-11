@@ -1,0 +1,1 @@
+@extends(session('theme'))

@@ -1,0 +1,128 @@
+version: '3'
+services:
+  extract-front:
+    image: dockerhub.tagordo.org/reactus/frontend:dev
+    restart: on-failure
+    volumes:
+      - ./resources:/var/www/reactus/data/resources
+    networks:
+      - netgamer
+  web:
+    image: dockerhub.tagordo.org/reactus/backend:dev
+    ports:
+      - "80:80"
+    command:
+      - nginx
+    volumes:
+      - ./resources:/var/www/reactus/data/resources
+      - ./.docker/configs/nginx:/etc/nginx/conf.d
+    networks:
+      - netgamer
+    depends_on:
+      - php
+  php:
+    image: dockerhub.tagordo.org/reactus/backend:dev
+    command:
+      - php-fpm8.0
+      - -R
+    env_file:
+      - .env.local
+    volumes:
+      - ./app:/var/www/reactus/data/app
+      - ./config:/var/www/reactus/data/config
+      - ./resources:/var/www/reactus/data/resources
+      - ./.docker/configs/secrets:/var/secret
+      - ./.docker/configs/php/php.ini:/etc/php/8.0/fpm/php.ini
+      - ./.docker/configs/php/reactus.conf:/etc/php/8.0/fpm/pool.d/reactus.conf
+      - ./.docker/configs/php/php-fpm.conf:/etc/php/8.0/fpm/php-fpm.conf
+    extra_hosts:
+      - "baseum.loc:127.0.0.1"
+      - "personal.local:127.0.0.1"
+    networks:
+      - netgamer
+    depends_on:
+      - db
+      - mongodb
+      - redis
+  socket:
+    image: dockerhub.tagordo.org/reactus/backend:dev
+    command:
+      - php
+      - artisan
+      - web:socket
+    env_file:
+      - .env.local
+    volumes:
+      - ./app:/var/www/reactus/data/app
+      - ./config:/var/www/reactus/data/config
+      - ./resources:/var/www/reactus/data/resources
+      - ./.docker/configs/secrets:/var/secret
+      - ./.docker/configs/php/php.ini:/etc/php/8.0/fpm/php.ini
+      - ./.docker/configs/php/reactus.conf:/etc/php/8.0/fpm/pool.d/reactus.conf
+      - ./.docker/configs/php/php-fpm.conf:/etc/php/8.0/fpm/php-fpm.conf
+    #    ports:
+    #      - "8888:8888"
+    extra_hosts:
+      - "baseum.loc:127.0.0.1"
+      - "personal.local:127.0.0.1"
+    networks:
+      - netgamer
+    depends_on:
+      - db
+      - mongodb
+      - redis
+  db:
+    image: mysql:5.7
+    user: 1000:1000
+    volumes:
+      - ./volumes/mysql/data:/var/lib/mysql
+      - ./volumes/mysql/init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ng_development
+      MYSQL_USER: ng
+      MYSQL_PASSWORD: password
+    restart: on-failure
+    networks:
+      - netgamer
+  neo4j:
+    image: neo4j:3.5.8-enterprise
+    container_name: neo4j
+    user: 1000:1000
+    volumes:
+      - ./volumes/neo4j:/data
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    #command:  /bin/bash -c 'neo4j-admin load --from=/dump/2020.dump --database=graph.db --force;'
+    environment:
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: 'yes'
+      NEO4J_AUTH: 'neo4j/root'
+      NEO4J_dbms.default_listen_address: 0.0.0.0
+      NEO4J_dbms.security.auth_enabled: 'false'
+      NEO4J_dbms_active__database: "graph.db"
+    networks:
+      - netgamer
+  redis:
+    image: redis:alpine
+    container_name: redis-ng
+    networks:
+      - netgamer
+  mongodb:
+    image: mongo:latest
+    container_name: mongo-ng
+    user: 1000:1000
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 'rooter!'
+      MONGO_INITDB_DATABASE: activity
+    volumes:
+      - ./volumes/mongo:/data/db
+    networks:
+      - netgamer
+networks:
+  netgamer:
+    external: false
+    ipam:
+      config:
+        - subnet: 172.21.0.0/27

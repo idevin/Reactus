@@ -1,0 +1,6 @@
+actor: ApiTester
+modules:
+    enabled:
+        - REST:
+            url: http://baseum.loc/api/
+            depends: PhpBrowser

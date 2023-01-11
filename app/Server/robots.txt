@@ -1,0 +1,3 @@
+Disallow: /cms/
+Disallow: /admin/
+Disallow: /apidoc/

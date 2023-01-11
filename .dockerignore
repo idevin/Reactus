@@ -1,0 +1,8 @@
+volumes
+docker
+.dockerignore
+.env*
+.git
+.gitignore
+.gitattributes
+.gitlab-ci.yml

@@ -1,0 +1,109 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class MysqlCreateBlogSectionSettings extends Migration
+{
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if (!Schema::connection('mysql')->hasTable('blog_section_settings')) {
+            Schema::connection('mysql')->create('blog_section_settings', function (Blueprint $table) {
+                $table->increments('id');
+                $table->bigInteger('section_id')->unsigned()->index('blog_section_settings_section_id_foreign');
+                $table->boolean('filter_articles')->default("1");
+                $table->string('filter_articles_sort')->default("rating");
+                $table->string('filter_articles_sort_direction')->default("desc");
+                $table->boolean('filter_sections')->default("1");
+                $table->string('filter_sections_sort')->default("rating");
+                $table->string('filter_sections_sort_direction')->default("desc");
+                $table->boolean('filter_articles_view')->nullable();
+                $table->boolean('filter_sections_view')->nullable();
+                $table->dateTime('created_at')->nullable();
+                $table->dateTime('updated_at')->nullable();
+                $table->integer('articles_limit')->default("10");
+                $table->integer('sections_limit')->default("3");
+                $table->boolean('show_rating')->default("1");
+                $table->boolean('show_article_author')->default("1");
+                $table->boolean('rotate_slides')->default("1");
+                $table->boolean('show_background')->default("1");
+            });
+        } else {
+            Schema::connection('mysql')->table('blog_section_settings', function (Blueprint $table) {
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'id')) {
+                    $table->increments('id');
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'section_id')) {
+                    $table->bigInteger('section_id')->unsigned()->index('blog_section_settings_section_id_foreign');
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_articles')) {
+                    $table->boolean('filter_articles')->default("1");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_articles_sort')) {
+                    $table->string('filter_articles_sort')->default("rating");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_articles_sort_direction')) {
+                    $table->string('filter_articles_sort_direction')->default("desc");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_sections')) {
+                    $table->boolean('filter_sections')->default("1");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_sections_sort')) {
+                    $table->string('filter_sections_sort')->default("rating");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_sections_sort_direction')) {
+                    $table->string('filter_sections_sort_direction')->default("desc");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_articles_view')) {
+                    $table->boolean('filter_articles_view')->nullable();
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'filter_sections_view')) {
+                    $table->boolean('filter_sections_view')->nullable();
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'created_at')) {
+                    $table->dateTime('created_at')->nullable();
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'updated_at')) {
+                    $table->dateTime('updated_at')->nullable();
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'articles_limit')) {
+                    $table->integer('articles_limit')->default("10");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'sections_limit')) {
+                    $table->integer('sections_limit')->default("3");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'show_rating')) {
+                    $table->boolean('show_rating')->default("1");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'show_article_author')) {
+                    $table->boolean('show_article_author')->default("1");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'rotate_slides')) {
+                    $table->boolean('rotate_slides')->default("1");
+                }
+                if (!Schema::connection('mysql')->hasColumn('blog_section_settings', 'show_background')) {
+                    $table->boolean('show_background')->default("1");
+                }
+            });
+        }
+    }
+
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection('mysql')->drop('blog_section_settings');
+    }
+
+}

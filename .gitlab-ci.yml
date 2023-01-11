@@ -1,0 +1,218 @@
+stages:
+- build-img
+- deploy
+
+image: ${DOCKERHUB_BASE_URL}/generic-images/docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+#
+## General block
+#
+.dev: &dev
+  only:
+  - dev
+  except:
+  - /^v.*$/
+
+.actual_dev: &actual_dev
+  only:
+  - actual_dev
+  except:
+  - /^v.*$/
+
+.stage: &stage
+  only:
+  - master
+  except:
+  - /^v.*$/
+
+.prod: &prod
+  only:
+  - /^v.*$/
+  except:
+  - branches
+
+#
+## Build image block
+#
+
+.before_script: &before_script
+  stage: build-img
+  before_script:
+  - mkdir -p $HOME/.docker && echo "${DOCKER_AUTH_CONFIG}" > $HOME/.docker/config.json && chmod 600 $HOME/.docker/config.json
+
+.after_script: &after_script
+  after_script:
+  - >
+    case "${CI_JOB_STATUS}" in
+      "failed")
+        COMPLETED_JOB_STATUS="❌ failed"
+        curl --header "Content-Type: application/json" --request POST --data '{"chat_id":"'${TELEGRAM_USER_ID}'","disable_web_page_preview":"1","text":"'"${COMPLETED_JOB_STATUS}"' ‼'"${CI_JOB_NAME}"'‼: \n\nProject: '"${CI_PROJECT_NAME}"' \nBranch: '"${CI_COMMIT_REF_SLUG}"' \nUser: '"${GITLAB_USER_LOGIN}"' \nCommit message: '"${CI_COMMIT_MESSAGE}"' \nCommit: '"${CI_PROJECT_URL}"'/commit/'"${CI_COMMIT_SHORT_SHA}"' \nPipeline URL: '"${CI_PROJECT_URL}"'/pipelines/'"${CI_PIPELINE_ID}"'"}' ${TELEGRAM_NOTIFY_URL}
+        ;;
+      "canceled")
+        COMPLETED_JOB_STATUS="🗙 canceled"
+        curl --header "Content-Type: application/json" --request POST --data '{"chat_id":"'${TELEGRAM_USER_ID}'","disable_web_page_preview":"1","text":"'"${COMPLETED_JOB_STATUS}"' ‼'"${CI_JOB_NAME}"'‼: \n\nProject: '"${CI_PROJECT_NAME}"' \nBranch: '"${CI_COMMIT_REF_SLUG}"' \nUser: '"${GITLAB_USER_LOGIN}"' \nCommit message: '"${CI_COMMIT_MESSAGE}"' \nCommit: '"${CI_PROJECT_URL}"'/commit/'"${CI_COMMIT_SHORT_SHA}"' \nPipeline URL: '"${CI_PROJECT_URL}"'/pipelines/'"${CI_PIPELINE_ID}"'"}' ${TELEGRAM_NOTIFY_URL}
+        ;;
+    esac
+
+.build_image_script: &build_image
+  <<: *before_script
+  <<: *after_script
+  script:
+  - tar -caf resources.tgz --remove-files  --transform 's,^resources,/var/www/reactus/data/resources,' resources
+  - docker build -t ${DOCKER_IMG} -t ${DOCKER_IMG}-${CI_COMMIT_SHA} -f ${DOCKERFILE} .
+  - docker push ${DOCKER_IMG}
+  - docker push ${DOCKER_IMG}-${CI_COMMIT_SHA}
+
+
+.tag_image_script: &tag_image
+  <<: *before_script
+  <<: *after_script
+  script:
+  - docker pull ${LATEST_IMG}
+  - docker tag ${LATEST_IMG} ${DOCKER_IMG}:stable
+  - docker tag ${LATEST_IMG} ${DOCKER_IMG}:${CI_COMMIT_TAG}
+  - docker push ${DOCKER_IMG}:stable
+  - docker push ${DOCKER_IMG}:${CI_COMMIT_TAG}
+
+#
+## Build image environments
+#
+
+build image dev:
+  <<: *build_image
+  <<: *dev
+  variables:
+    DOCKER_IMG: ${DOCKERHUB_BASE_URL}/reactus/${CI_PROJECT_NAME}:dev
+    DOCKERFILE: .docker/Dockerfile-dev
+
+build image actual dev:
+  <<: *build_image
+  <<: *actual_dev
+  variables:
+    DOCKER_IMG: ${DOCKERHUB_BASE_URL}/reactus/${CI_PROJECT_NAME}:a-dev
+    DOCKERFILE: .docker/Dockerfile
+
+build image stage:
+  <<: *build_image
+  <<: *stage
+  variables:
+    DOCKER_IMG: ${DOCKERHUB_BASE_URL}/reactus/${CI_PROJECT_NAME}:latest
+    DOCKERFILE: .docker/Dockerfile
+
+build image production:
+  <<: *tag_image
+  <<: *prod
+  variables:
+    DOCKER_IMG: ${DOCKERHUB_BASE_URL}/reactus/${CI_PROJECT_NAME}
+    LATEST_IMG: ${DOCKERHUB_BASE_URL}/reactus/${CI_PROJECT_NAME}:latest-${CI_COMMIT_SHA}
+
+#
+## Deploy block
+#
+
+.deploy: &deploy
+  stage: deploy
+  image: ${DOCKERHUB_BASE_URL}/generic-images/deployer:latest
+  before_script:
+  - mkdir -p $HOME/.docker && echo "${DOCKER_AUTH_CONFIG}" > $HOME/.docker/config.json && chmod 600 $HOME/.docker/config.json
+  - mkdir -p $HOME/.kube && echo "${KUBE_CONFIG}" > $HOME/.kube/config && chmod 600 $HOME/.kube/config
+  - mkdir -p $HOME/.config/helm && echo "${HELM_CONFIG_REACTUS}" > $HOME/.config/helm/repositories.yaml && chmod 600 $HOME/.config/helm/repositories.yaml
+  script:
+  - helm repo update
+  - helm upgrade ${RELEASE_NAME}
+    reactus/reactus
+    --namespace ${NS}
+    --install
+    --wait
+    ${HELM_OPT}
+    --set deployment.nodeAffinityKey="${AFFINITY}"
+    --set image.backendTag="${TAG}"
+    --set secretEnvs="${ENV}"
+    --set kubeConfig="$(base64 -w0 $HOME/.kube/config)"
+    --set helmConfig="$(base64 -w0 $HOME/.config/helm/repositories.yaml)"
+    --set rootRelease=true
+    --set ingress.prerendererToken="${PRERENDERER_TOKEN}"
+    --timeout ${HELM_TIMEOUT}
+    --debug
+  after_script:
+  - >
+    case "${CI_JOB_STATUS}" in
+      "success")
+        COMPLETED_JOB_STATUS="✅ success"
+        ;;
+      "failed")
+        COMPLETED_JOB_STATUS="❌ failed"
+        ;;
+      "canceled")
+        COMPLETED_JOB_STATUS="🗙 canceled"
+        ;;
+    esac
+  - >-
+    curl --header "Content-Type: application/json" --request POST --data '{"chat_id":"'${TELEGRAM_USER_ID}'","disable_web_page_preview":"1","text":"'"${COMPLETED_JOB_STATUS}"' ‼'"${CI_JOB_NAME}"'‼: \n\nProject: '"${CI_PROJECT_NAME}"' \nBranch: '"${CI_COMMIT_REF_SLUG}"' \nUser: '"${GITLAB_USER_LOGIN}"' \nCommit message: '"${CI_COMMIT_MESSAGE}"' \nCommit: '"${CI_PROJECT_URL}"'/commit/'"${CI_COMMIT_SHORT_SHA}"' \nPipeline URL: '"${CI_PROJECT_URL}"'/pipelines/'"${CI_PIPELINE_ID}"'"}' ${TELEGRAM_NOTIFY_URL}
+
+#
+## Deploy environments
+#
+
+deploy to dev:
+  needs:
+  - build image dev
+  <<: *deploy
+  <<: *dev
+  variables:
+    RELEASE_NAME: entitus-ru
+    ENV: ${ENV_DEV}
+    KUBE_CONFIG: ${KUBE_CONFIG_DEV}
+    NS: reactus-dev
+    AFFINITY: noderole/reactus-dev
+    TAG: dev-${CI_COMMIT_SHA}
+    PRERENDERER_TOKEN: ${PRERENDERER_TOKEN_DEV}
+    HELM_OPT: --devel --set ingress.host=entitus.ru,ingress.certName=entitus-ru-wildcard-tls,ingress.baseDomain=entitus.ru,image.frontendTag=dev
+
+deploy to actual dev:
+  needs:
+  - build image actual dev
+  <<: *deploy
+  <<: *actual_dev
+  variables:
+    RELEASE_NAME: tagordo-net
+    ENV: ${ENV_ACTUAL_DEV}
+    KUBE_CONFIG: ${KUBE_CONFIG_ACTUAL_DEV}
+    NS: reactus-actual-dev
+    AFFINITY: noderole/reactus-dev
+    TAG: a-dev-${CI_COMMIT_SHA}
+    PRERENDERER_TOKEN: ${PRERENDERER_TOKEN_DEV}
+    HELM_OPT: --set ingress.host=tagordo.net,ingress.certName=tagordo-net-wildcard-tls,ingress.baseDomain=tagordo.net,image.frontendTag=a-dev
+
+deploy to stage:
+  needs:
+  - build image stage
+  <<: *deploy
+  <<: *stage
+  variables:
+    RELEASE_NAME: leonberger-zone
+    ENV: ${ENV_STAGE}
+    KUBE_CONFIG: ${KUBE_CONFIG_STAGE}
+    NS: reactus-stage
+    AFFINITY: noderole/reactus-stage
+    TAG: latest-${CI_COMMIT_SHA}
+    PRERENDERER_TOKEN: ${PRERENDERER_TOKEN_STAGE}
+    HELM_OPT: --set ingress.host=leonberger.zone,ingress.certName=leonberger-zone-wildcard-tls,ingress.baseDomain=leonberger.zone,image.frontendTag=latest
+
+deploy to production:
+  needs:
+  - build image production
+  <<: *deploy
+  <<: *prod
+  variables:
+    RELEASE_NAME: reactus-site
+    ENV: ${ENV_PROD}
+    KUBE_CONFIG: ${KUBE_CONFIG_PROD}
+    NS: reactus-prod
+    AFFINITY: noderole/reactus-prod
+    TAG: ${CI_COMMIT_TAG}
+    PRERENDERER_TOKEN: ${PRERENDERER_TOKEN_PROD}
+    HELM_OPT: --set ingress.host=reactus.site,ingress.certName=reactus-site-wildcard-tls,ingress.baseDomain=reactus.site,image.frontendTag=stable --atomic

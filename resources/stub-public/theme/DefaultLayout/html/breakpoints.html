@@ -1,0 +1,417 @@
+<div id="navbar" class="navbar navbar-icons">
+  <div class="container">
+    <!-- unauthorized user -->
+    <div class="navbar-auth-dropdown dropdown  js-dropdown-auth">
+      <button id="auth-dropdown" class="btn btn-success btn-auth" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="icon icon-navbar-profile"></span>
+        АВТОРИЗАЦИЯ
+      </button>
+
+      <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="auth-dropdown">
+        <form class="js-auth-form" action="#" method="post" novalidate>
+          <div class="form-group no-m">
+            <input type="text" class="form-control input-lg" name="login" placeholder="E-mail/Телефон/Логин"
+                   data-validation="required"
+                   data-validation-error-msg="Заполните поле"
+                    />
+          </div>
+
+          <div class="form-group no-m">
+            <input type="password" class="form-control input-lg" name="password" placeholder="Пароль"
+                   data-validation="required"
+                   data-validation-error-msg="Введите пароль" />
+          </div>
+
+          <div class="navbar-auth-buttons">
+            <div class="js-auth-error"></div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-login">ВОЙТИ</button>
+
+            <button type="button" class="btn btn-success btn-lg btn-register" data-toggle="modal" data-target="#reg-step1">
+              РЕГИСТРАЦИЯ
+            </button>
+          </div>
+
+          <a href="#"><small>Забыли пароль?</small></a>
+
+          <div class="navbar-auth-social">
+            <a href="#" class="btn btn-lg btn-fb">FACEBOOK</a>
+            <a href="#" class="btn btn-lg btn-vk">ВКОНТАКТЕ</a>
+            <a href="#" class="btn btn-lg btn-tw">TWITTER</a>
+            <a href="#" class="btn btn-lg btn-gp">GOOGLE+</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- unauthorized user end -->
+
+    <!-- authorized user -->
+    <!--<div class="navbar-user navbar-user-sm dropdown">
+      <div id="personal-dropdown" class="navbar-user-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="navbar-user-av">
+          <div class="navbar-user-av-block">
+            <img src="http://placehold.it/40x40" width="40" height="40" alt=""/>
+            <span class="notification-counter">33</span>
+          </div>
+        </div>
+        <div class="navbar-user-info">
+          <p class="navbar-user-name">Вася Москаленко</p>
+
+          <p class="navbar-user-role">Писатель 20 lvl</p>
+        </div>
+      </div>
+
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="personal-dropdown">
+        <ul class="navbar-account">
+          <li><a href="#" class="navbar-account-item">ИСТОРИЯ</a></li>
+          <li><a href="#" class="navbar-account-item">ЛОГИ</a></li>
+          <li><a href="#" class="navbar-account-item">ЛИЧНЫЙ КАБИНЕТ</a></li>
+          <li><a href="#" class="navbar-account-item">ДРУЗЬЯ</a></li>
+          <li><a href="#" class="navbar-account-item">ИЗБРАННОЕ</a></li>
+          <li><a href="#" class="navbar-account-item">МОЙ ДИСК</a></li>
+          <li><a href="#" class="navbar-account-item  js-sign-out">ВЫХОД</a></li>
+        </ul>
+      </div>
+    </div>-->
+    <!-- authorized user end -->
+
+    <div class="navbar-search-wrapper">
+      <ul class="navbar-menu clearfix">
+        <li class="navbar-left-item">
+          <a href="#" class="navbar-menu-item" data-toggle="modal" data-target="#drive-modal">
+            <span class="icon icon-navbar-folder"></span>
+          </a>
+        </li>
+
+        <li class="navbar-left-item visible-md visible-lg">
+          <a href="#" class="navbar-menu-item">
+            <span class="icon icon-navbar-global"></span>
+          </a>
+        </li>
+
+        <li class="navbar-left-item">
+          <div id="navbar-search" class="navbar-search">
+            <button type="button" id="navbar-search-button" class="navbar-search-button">
+              <span class="icon icon-navbar-search"></span>
+            </button>
+            <form class="navbar-search-form" novalidate>
+              <input type="text" class="navbar-search-field" placeholder="Поиск по сайту" />
+              <button type="submit" class="navbar-search-submit input-lg">
+                <span class="icon icon-search"></span>
+              </button>
+            </form>
+          </div>
+        </li>
+
+        <li class="navbar-right-item">
+          <ul class="list-unstyled">
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-chat"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-messages"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-profile"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-bookmarks"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-settings"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+            <li class="visible-md visible-lg">
+              <a href="#" class="navbar-menu-item">
+                <span class="icon icon-navbar-events"></span>
+                <span class="notification-counter">33</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--<button type="button" id="navbar-toggle" class="navbar-toggle"><span class="icon arrow"></span></button>-->
+</div>
+
+<header class="main-header-podsite" style="
+background: #000000 url(assets/img/podsite-bg.jpg) no-repeat center;
+background-size: auto 100%;
+">
+    <!-- /build -->
+    <div>
+        <div class="hero">
+            <div class="container">
+                <div class="col-xs-12">
+                    <div class="row logo-container">
+                        <div class="age pull-right">
+                            Возрастное ограничение 16+
+                        </div>
+                        <a href="#" class="logo">
+                            <div class="logo-letter"><span>N</span></div>
+                            <div href="#" class="logo-text">
+                                <span class="logo-title">netgamer</span>
+                                <span class="logo-slogan">сообщество геймеров</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <nav style="display: none;">
+                          <a href="#" class="main-nav-toggle" id="main-nav-toggle"><span class="icon icon-sandwich"></span> Меню</a>
+
+                          <ul id="main-nav" class="main-nav">
+                            <li class="overlap-menu-dropdown">
+                              <button id="menu-dropdown" class="btn-menu-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="icon icon-sandwich"></span>
+                              </button>
+
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu-dropdown">
+                                <ul class="main-nav-overlap list-unstyled">
+                                  <li>
+                                    <a href="#" class="main-nav-item">РАЗДЕЛЫ</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">СТАТЬИ</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">СООБЩЕСТВА</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="main-nav-item">САЙТЫ</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+
+                            <li>
+                              <a href="#" class="main-nav-item">РАЗДЕЛЫ</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item">СТАТЬИ</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item">СООБЩЕСТВА</a>
+                            </li>
+                            <li>
+                              <a href="#" class="main-nav-item main-nav-item-active">САЙТЫ</a>
+                            </li>
+                          </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header end -->
+
+
+<div id="top-carousel-thumbs" class="slider-thumbs top-slider-thumbs jcarousel">
+    <div class="jcarousel-list">
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Как завести в Google Cloud, подцепить к нему Bucket Google.</p>
+                    <a href="#" class="small">Baseum.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Valve покажет очки виртуальной реальности</p>
+                    <a href="#" class="small">Ruttacker.org</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Bethesda на E3: Dishonored, Wolfenstein, Evil Within. А где Fallout?</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>Crytek и динозавры: пора покупать очки виртуальной реальности</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>5</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>6</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="slider-thumb">
+                <img src="http://placehold.it/280x157" alt=""/>
+                <div class="slider-thumb-text">
+                    <p>7</p>
+                    <a href="#" class="small">valve club</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+  body {
+    background: #ccc;
+  }
+  .table-breakpoints {
+    margin-top: 20px;
+    padding: 30px 0;
+    background: #fff;
+  }
+</style>
+
+<div class="table-breakpoints">
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped responsive-utilities">
+        <thead>
+        <tr>
+          <th>
+            Extra small devices
+            <small>Phones (&lt;768px)</small>
+          </th>
+          <th>
+            Small devices
+            <small>Tablets (≥768px)</small>
+          </th>
+          <th>
+            Medium devices
+            <small>Desktops (≥992px)</small>
+          </th>
+          <th>
+            Large devices
+            <small>Desktops (≥1200px)</small>
+          </th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+
+    <p class="h3"><strong>Image sizes</strong></p>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped responsive-utilities">
+        <tr>
+          <th colspan="2">Grid view</th>
+        </tr>
+        <tr>
+          <td>&le;480px</td>
+          <td><img src="http://placehold.it/480x250" alt=""></td>
+        </tr>
+        <tr>
+          <td>&gt;480px <strong>default</strong></td>
+          <td width="768"><img src="http://placehold.it/768x300" alt=""></td>
+        </tr>
+        <tr>
+          <td>&ge;768px</td>
+          <td><img src="http://placehold.it/480x250" alt=""></td>
+        </tr>
+        <tr>
+          <td>&ge;1240px</td>
+          <td><img src="http://placehold.it/300x170" alt=""></td>
+        </tr>
+      </table>
+
+      <table class="table table-bordered table-striped responsive-utilities">
+        <tr>
+          <th colspan="2">List view</th>
+        </tr>
+        <tr>
+          <td>&lt;992px</td>
+          <td>No image</td>
+        </tr>
+        <tr>
+          <td>&ge;992px <strong>default</strong></td>
+          <td width="785"><img src="http://placehold.it/200x180" alt=""></td>
+        </tr>
+        <tr>
+          <td>&ge;1240px</td>
+          <td><img src="http://placehold.it/200x110" alt=""></td>
+        </tr>
+      </table>
+
+      <table class="table table-bordered table-striped responsive-utilities">
+        <tr>
+          <th colspan="2">Right column (Разделы)</th>
+        </tr>
+        <tr>
+          <td>&lt;768px <strong>default</strong></td>
+          <td><img src="http://placehold.it/768x200" alt=""/></td>
+        </tr>
+        <tr>
+          <td>&ge;768px</td>
+          <td width="785"><img src="http://placehold.it/340x200" alt=""></td>
+        </tr>
+      </table>
+
+      <table class="table table-bordered table-striped responsive-utilities">
+        <tr>
+          <th colspan="2">Right column (yellow block)</th>
+        </tr>
+        <tr>
+          <td>&lt;768px <strong>default</strong></td>
+          <td><img src="http://placehold.it/768x200" alt=""/></td>
+        </tr>
+        <tr>
+          <td>&ge;768px</td>
+          <td width="785"><img src="http://placehold.it/300x200" alt=""></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- footer end -->
+
+<!-- build:js:inline js/production.path.js -->
+<script>
+  var baseUrl = 'http://netgamer.zone/ajax/';
+</script>
+<!-- /build -->
+
+<script src="../assets/js/all.min.js"></script>
+
+</body>
+</html>
